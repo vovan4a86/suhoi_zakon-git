@@ -1,0 +1,26 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "mix",
+    "watch": "mix watch",
+    "watch-poll": "mix watch -- --watch-options-poll=1000",
+    "hot": "mix watch --hot",
+    "prod": "mix --production",
+    "cities": "mix --mix-config=webpack.cities.mix.js --production"
+  },
+  "dependencies": {
+    "@fancyapps/ui": "^4.0.26",
+    "aos": "^2.3.4",
+    "cross-env": "^6.0.3",
+    "focus-visible": "^5.2.0",
+    "inputmask": "^5.0.7",
+    "jquery": "^3.6.0",
+    "macy": "^2.5.1",
+    "laravel-mix": "^6.0.0",
+    "vanilla-lazyload": "^17.5.0",
+    "webpack": "^5.0.0"
+  },
+  "devDependencies": {
+    "vue-template-compiler": "^2.7.14"
+  }
+}

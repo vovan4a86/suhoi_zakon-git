@@ -1,0 +1,15 @@
+# Project exclude paths
+/vendor
+/node_modules
+/public/thumbs/
+/public/uploads/
+/public/test/
+/public/sitemap.xml
+/public/data-site/
+.env
+.idea/
+.yarn
+
+# Project exclude paths
+/storage/debugbar/
+/storage/framework/
