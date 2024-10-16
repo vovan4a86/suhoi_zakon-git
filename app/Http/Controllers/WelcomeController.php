@@ -12,14 +12,11 @@ class WelcomeController extends Controller {
         $page->ogGenerate();
         $page->setSeo();
 
-        $all_services = Settings::get('main_services');
-        $services = array_chunk($all_services, 3);
 
         return response()->view('pages.index', [
             'page' => $page,
             'text' => $page->text,
             'h1' => $page->getH1(),
-            'services' => $services
         ]);
     }
 }

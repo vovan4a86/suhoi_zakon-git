@@ -1,29 +1,18 @@
 <!DOCTYPE html>
-<html lang="ru-RU">
+<html lang="ru">
 
 @include('blocks.head')
 
-<body class="no-scroll">
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 @if(isset($h1))
-
     <h1 class="v-hidden">{{ $h1 }}</h1>
 @endif
-<div class="preloader">
-    <div class="preloader__loader"></div>
-    <div class="preloader__lobel">Загрузка</div>
-    <script type="text/javascript">
-        const preloader=document.querySelector(".preloader"),body=document.querySelector("body");preloader&&window.addEventListener("load",(()=>{body.classList.remove("no-scroll"),preloader.classList.add("unactive")}));
-    </script>
-</div>
 
 @include('blocks.header')
-@include('blocks.mob_nav')
-@include('blocks.b_nav')
 
 @yield('content')
 
 @include('blocks.footer')
-@include('blocks.popups')
 
 <div class="v-hidden" id="company" itemprop="branchOf" itemscope itemtype="https://schema.org/Corporation"
      aria-hidden="true" tabindex="-1">
