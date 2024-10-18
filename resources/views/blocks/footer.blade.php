@@ -4,18 +4,17 @@
             <div class="col-md-6">
                 <div class="row">
                     <div class="col-md-7">
-                        <h2 class="footer-heading mb-4">О нас</h2>
-                        <p>Профессиональное издание <br>о гидроизоляции <br>и технологиях защиты бетона от воды&nbsp;
-                        </p>
+                        @if($about = S::get('footer_about'))
+                            <h2 class="footer-heading mb-4">О нас</h2>
+                            <p>{!! $about !!}</p>
+                        @endif
                     </div>
                     <div class="col-md-4 ml-auto">
                         <h2 class="footer-heading mb-4">Разделы</h2>
                         <ul class="list-unstyled">
-                            <li><a href="#about-section">О нас</a></li>
-                            <li><a href="#testimonials-section">Отзывы</a></li>
-                            <li><a href="#anchor">Новости</a></li>
-                            <li><a href="#blog-section">Статьи</a></li>
-                            <li><a href="#pricing-section">Архив</a></li>
+                            @foreach($footer_menu as $item)
+                                <li><a href="#{{ $item->alias }}">{{ $item->name }}</a></li>
+                            @endforeach
                         </ul>
                     </div>
 
@@ -42,7 +41,7 @@
                 </div>
 
                 <ul class="list-unstyled">
-                    <li><a href="single.html">Политика обработки персональных данных</a></li>
+                    <li><a href="{{ route('policy') }}" target="_blank">Политика обработки персональных данных</a></li>
                 </ul>
 
             </div>
@@ -52,15 +51,7 @@
             <div class="col-md-12">
                 <div class="border-top pt-5">
                     <p class="copyright">
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy; Журнал «Сухой закон» | Учередитель и издатель СРО РСПППГ. Свидетельство о
-                        регистрации ПИ
-                        № ФС77-25126 <br>выдано 28.08.2006 Федеральной службой по надзору за соблюдением
-                        законодательства <br>в
-                        сфере массовых коммуникаций и охраны культурного наследия | <a href="https://colorlib.com"
-                                                                                       target="_blank">
-                            Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                       {!! S::get('footer_copy') !!}
                     </p>
                 </div>
             </div>

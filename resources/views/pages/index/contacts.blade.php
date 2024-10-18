@@ -2,10 +2,16 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center mb-5" data-aos="fade-up" data-aos-delay="">
-                <div class="block-heading-1">
-                    <span>будьте на связи</span>
-                    <h2>связатся с нами</h2>
-                </div>
+                @if($titles = S::get('contacts_titles'))
+                    <div class="block-heading-1">
+                        @if($titles['subtitle'])
+                            <span>{{ $titles['subtitle'] }}</span>
+                        @endif
+                        @if($titles['title'])
+                            <h2>{{ $titles['title'] }}</h2>
+                        @endif
+                    </div>
+                @endif
             </div>
         </div>
         <div class="row">
@@ -41,23 +47,31 @@
                 </form>
             </div>
 
-            <!-- КОНТАКТЫ -->
-            <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
-                <div class="bg-white p-3 p-md-5">
-                    <h3 class="text-black mb-4">Контакты</h3>
-                    <!-- РАЗДЕЛ О НАС -->
-                    <ul class="list-unstyled footer-link">
-                        <li class="d-block mb-3">
-                            <span class="d-block text-black">Адрес редакции:</span>
-                            <span>г. Екатеринбург<br> площадь Жуковского, 1 <br>офис ГК «Пенетрон»</span>
-                        </li>
-                        <li class="d-block mb-3"><span class="d-block text-black">Телефон:</span><span>+7 343 217 02 02</span>
-                        </li>
-                        <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>szakon@penetron.ru</span>
-                        </li>
-                    </ul>
+            @if($contacts = S::get('contacts'))
+                <div class="col-lg-4 ml-auto" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-white p-3 p-md-5">
+                        <h3 class="text-black mb-4">Контакты</h3>
+                        <!-- РАЗДЕЛ О НАС -->
+                        <ul class="list-unstyled footer-link">
+                            @if($contacts['address'])
+                                <li class="d-block mb-3">
+                                    <span class="d-block text-black">Адрес редакции:</span>
+                                    <span>{!! $contacts['address'] !!}</span>
+                                </li>
+                            @endif
+                            @if($contacts['phone'])
+                                <li class="d-block mb-3"><span
+                                            class="d-block text-black">Телефон:</span><span>{{ $contacts['phone'] }}</span>
+                                </li>
+                            @endif
+                            @if($contacts['email'])
+                                <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>{{ $contacts['email'] }}</span>
+                                </li>
+                            @endif
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            @endif
         </div>
     </div>
 </div>

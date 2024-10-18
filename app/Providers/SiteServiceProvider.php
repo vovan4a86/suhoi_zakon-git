@@ -39,6 +39,7 @@ class SiteServiceProvider extends ServiceProvider
                     $mobile_menu = Page::query()
                         ->public()
                         ->where('on_mobile', 1)
+                        ->whereParentId(1)
                         ->orderBy('order')
                         ->get();
                     Cache::add('mobile_menu', $mobile_menu, now()->addMinutes(60));
@@ -49,6 +50,7 @@ class SiteServiceProvider extends ServiceProvider
                     $footer_menu = Page::query()
                         ->public()
                         ->where('on_footer', 1)
+                        ->whereParentId(1)
                         ->orderBy('order')
                         ->get();
                 }
