@@ -4,11 +4,15 @@
 @include('blocks.head')
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-@if(isset($h1))
-    <h1 class="v-hidden">{{ $h1 }}</h1>
-@endif
+{{--@if(isset($h1))--}}
+{{--    <h1 class="v-hidden">{{ $h1 }}</h1>--}}
+{{--@endif--}}
 
 @include('blocks.header')
+
+@if(Root::is(['news', 'news.item']))
+    @include('blocks.search')
+@endif
 
 @yield('content')
 

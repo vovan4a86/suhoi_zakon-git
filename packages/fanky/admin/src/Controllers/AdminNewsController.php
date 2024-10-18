@@ -1,5 +1,6 @@
 <?php namespace Fanky\Admin\Controllers;
 
+use Fanky\Admin\Models\NewsImage;
 use Illuminate\Support\Str;
 use Request;
 use Validator;
@@ -86,4 +87,59 @@ class AdminNewsController extends AdminController {
 
 		return ['success' => true];
 	}
+
+    public function postNewsImageUpload($news_id): array
+    {
+        $images = Request::file('images');
+        $items = [];
+        if ($images) {
+            foreach ($images as $image) {
+                $file_name = NewsImage::uploadImage($image);
+                $order = NewsImage::where('news_id', $news_id)->max('order') + 1;
+                $item = NewsImage::create(['news_id' => $news_id, 'image' => $file_name, 'order' => $order]);
+                $items[] = $item;
+            }
+        }
+
+        $html = '';
+        foreach ($items as $item) {
+            $html .= view('admin::news.news_image', ['image' => $item]);
+        }
+
+        return ['html' => $html];
+    }
+
+    public function postNewsImageOrder(): array
+    {
+        $sorted = Request::get('sorted', []);
+        foreach ($sorted as $order => $id) {
+            NewsImage::whereId($id)->update(['order' => $order]);
+        }
+
+        return ['success' => true];
+    }
+
+    public function postNewsImageDelete($id): array
+    {
+        $item = NewsImage::findOrFail($id);
+        $item->deleteImage();
+        $item->delete();
+
+        return ['success' => true];
+    }
+
+    public function postImageEdit($id)
+    {
+        $image = NewsImage::findOrFail($id);
+        return view('admin::news.news_image_edit', ['image' => $image]);
+    }
+
+    public function postImageDataSave($id): array
+    {
+        $image = NewsImage::findOrFail($id);
+        $text = Request::get('image_text');
+        $image->text = $text;
+        $image->save();
+        return ['success' => true];
+    }
 }

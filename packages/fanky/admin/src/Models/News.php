@@ -5,6 +5,7 @@ use App\Traits\HasImage;
 use App\Traits\HasSeo;
 use App\Traits\OgGenerate;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Thumb;
 use Carbon\Carbon;
@@ -73,16 +74,18 @@ class News extends Model {
 
 	public static $thumbs = [
 		1 => '100x50', //admin
-		2 => '398x240|fit', //news_list
+		2 => '350x230', //news_list
 	];
-
-	public function tags() {
-		return $this->belongsToMany(NewsTag::class);
-	}
 
 	public function scopePublic($query) {
 		return $query->where('published', 1);
 	}
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(NewsImage::class, 'news_id')
+            ->orderBy('order');
+    }
 
 	public function getUrlAttribute($value) {
 		return route('news.item', ['alias' => $this->alias]);

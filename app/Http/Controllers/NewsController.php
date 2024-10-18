@@ -3,7 +3,6 @@
 use Fanky\Admin\Models\News;
 use Fanky\Admin\Models\Page;
 use Fanky\Auth\Auth;
-use Illuminate\Http\Request;
 use Settings;
 use View;
 
@@ -80,7 +79,9 @@ class NewsController extends Controller {
             'date'        => $item->dateFormat('d F Y'),
             'h1'          => $item->getH1(),
             'text'        => $item->text,
+            'announce'    => $item->announce,
             'item'        => $item,
+            'images'      => $item->images
         ]);
 	}
 }

@@ -28,6 +28,7 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab_1" data-toggle="tab">Параметры</a></li>
                 <li><a href="#tab_2" data-toggle="tab">Текст</a></li>
+                <li><a href="#tab_3" data-toggle="tab">Галерея</a></li>
                 @if($article->id)
                     <li class="pull-right">
                         <a href="{{ route('news.item', [$article->alias]) }}" target="_blank">Посмотреть</a>
@@ -71,6 +72,28 @@
                     {!! Form::groupTextarea('announce', $article->announce, 'Краткое описание', ['rows' => 3]) !!}
                     {!! Form::groupRichtext('text', $article->text, 'Текст', ['rows' => 3]) !!}
                 </div>
+
+                <div class="tab-pane" id="tab_3">
+                    <input id="news-image" type="hidden" name="image" value="{{ $article->image }}">
+                    @if ($article->id)
+                        <div class="form-group">
+                            <label class="btn btn-success">
+                                <input id="offer_imag_upload" type="file" multiple
+                                       data-url="{{ route('admin.news.newsImageUpload', $article->id) }}"
+                                       style="display:none;" onchange="newsImageUpload(this, event)">
+                                Загрузить изображения
+                            </label>
+                        </div>
+
+                        <div class="images_list">
+                            @foreach ($article->images as $image)
+                                @include('admin::news.news_image', ['image' => $image])
+                            @endforeach
+                        </div>
+                    @else
+                        <p class="text-yellow">Изображения в галерею можно будет загрузить после сохранения новости!</p>
+                    @endif
+                </div>
             </div>
 
             <div class="box-footer">
@@ -78,4 +101,14 @@
             </div>
         </div>
     </form>
+    <script type="text/javascript">
+        $(".images_list").sortable({
+            update: function (event, ui) {
+                var url = "{{ route('admin.news.newsImageOrder') }}";
+                var data = {};
+                data.sorted = $('.images_list').sortable("toArray", {attribute: 'data-id'});
+                sendAjax(url, data);
+            },
+        }).disableSelection();
+    </script>
 @stop

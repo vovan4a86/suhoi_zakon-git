@@ -11,9 +11,7 @@
   "dependencies": {
     "laravel-mix": "^6.0.0",
     "webpack": "^5.0.0",
-    "cross-env": "^6.0.3",
-    "jquery": "3.3.1",
-    "popper.js": "1.15.0"
+    "cross-env": "^6.0.3"
   },
   "devDependencies": {
     "vue-template-compiler": "^2.7.14"
