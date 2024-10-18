@@ -10,7 +10,7 @@
 
 @include('blocks.header')
 
-@if(Root::is(['news', 'news.item']))
+@if(Route::is(['news', 'news.item']))
     @include('blocks.search')
 @endif
 

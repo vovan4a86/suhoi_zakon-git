@@ -68,11 +68,12 @@ class Page extends Model
     protected $_parents = [];
     private $_url;
 
-    public static $hasImageField = [
-        'about'
-    ];
+    public static $hasImageField = [];
 
     public static $excludeTextField = [
+        'news',
+        'articles',
+        'archive',
         'contacts',
     ];
 

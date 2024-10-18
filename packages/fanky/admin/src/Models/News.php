@@ -7,6 +7,8 @@ use App\Traits\OgGenerate;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
+use S;
 use Thumb;
 use Carbon\Carbon;
 
@@ -106,15 +108,10 @@ class News extends Model {
 		return $items;
 	}
 
-	/**
-	 * @return Carbon
-	 */
-	public function getLastModify() {
-		return $this->updated_at;
-	}
+    public function getAnnounce() {
+        $text = $this->announce ?: $this->text;
 
-    public static function getMainSliderNews() {
-        return self::where('published',  1)->where('on_main_slider',  1)->get();
+        return Str::limit($text, S::get('news_announce_length', 123));
     }
 
 }

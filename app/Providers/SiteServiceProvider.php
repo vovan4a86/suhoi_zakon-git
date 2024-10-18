@@ -27,20 +27,11 @@ class SiteServiceProvider extends ServiceProvider
                 if (!count($header_menu)) {
                     $header_menu = Page::query()
                         ->public()
+                        ->whereParentId(1)
                         ->where('on_header', 1)
                         ->orderBy('order')
                         ->get();
                     Cache::add('header_menu', $header_menu, now()->addMinutes(60));
-                }
-
-                $catalog_menu = Cache::get('catalog_menu', collect());
-                if (!count($catalog_menu)) {
-                    $catalog_menu = Catalog::query()
-                        ->public()
-                        ->where('parent_id', 0)
-                        ->orderBy('order')
-                        ->get();
-                    Cache::add('catalog_menu', $catalog_menu, now()->addMinutes(60));
                 }
 
                 $mobile_menu = Cache::get('mobile_menu', collect());
@@ -67,8 +58,7 @@ class SiteServiceProvider extends ServiceProvider
                         [
                             'header_menu',
                             'mobile_menu',
-                            'footer_menu',
-                            'catalog_menu'
+                            'footer_menu'
                         ]
                     )
                 );
