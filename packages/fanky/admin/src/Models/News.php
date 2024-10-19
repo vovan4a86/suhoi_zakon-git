@@ -72,7 +72,6 @@ class News extends Model {
 	protected $guarded = ['id'];
 
 	const UPLOAD_URL = '/uploads/news/';
-    const NO_IMAGE = '/adminlte/no_image.png';
 
 	public static $thumbs = [
 		1 => '100x50', //admin

@@ -1,14 +1,10 @@
 <?php namespace Fanky\Admin\Controllers;
 
 use Fanky\Admin\Models\Article;
-use Fanky\Admin\Models\PublicationTag;
-use Fanky\Admin\Settings;
-use Illuminate\Support\Str;
+use Fanky\Admin\Models\ArticleImage;
 use Request;
 use Validator;
 use Text;
-use Thumb;
-use Image;
 
 class AdminArticlesController extends AdminController {
 
@@ -79,4 +75,69 @@ class AdminArticlesController extends AdminController {
 
 		return ['success' => true];
 	}
+
+    public function postDeleteImage($id) {
+        $news = News::find($id);
+        if(!$news) return ['success' => false, 'msg' => 'Новость не найдена'];
+
+        $news->deleteImage();
+        $news->update(['image' => null]);
+
+        return ['success' => true];
+    }
+
+    public function postArticleImageUpload($news_id): array
+    {
+        $images = Request::file('images');
+        $items = [];
+        if ($images) {
+            foreach ($images as $image) {
+                $file_name = ArticleImage::uploadImage($image);
+                $order = ArticleImage::where('article_id', $news_id)->max('order') + 1;
+                $item = ArticleImage::create(['article_id' => $news_id, 'image' => $file_name, 'order' => $order]);
+                $items[] = $item;
+            }
+        }
+
+        $html = '';
+        foreach ($items as $item) {
+            $html .= view('admin::articles.article_image', ['image' => $item]);
+        }
+
+        return ['html' => $html];
+    }
+
+    public function postArticleImageOrder(): array
+    {
+        $sorted = Request::get('sorted', []);
+        foreach ($sorted as $order => $id) {
+            ArticleImage::whereId($id)->update(['order' => $order]);
+        }
+
+        return ['success' => true];
+    }
+
+    public function postNewsImageDelete($id): array
+    {
+        $item = ArticleImage::findOrFail($id);
+        $item->deleteImage();
+        $item->delete();
+
+        return ['success' => true];
+    }
+
+    public function postImageEdit($id)
+    {
+        $image = ArticleImage::findOrFail($id);
+        return view('admin::articles.article_image_edit', ['image' => $image]);
+    }
+
+    public function postImageDataSave($id): array
+    {
+        $image = ArticleImage::findOrFail($id);
+        $text = Request::get('image_text');
+        $image->text = $text;
+        $image->save();
+        return ['success' => true];
+    }
 }

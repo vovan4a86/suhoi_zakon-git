@@ -4,6 +4,9 @@
             <div class="col-lg-4 mb-5 mb-lg-0">
                 <div class="block-heading-1" data-aos="fade-right" data-aos-delay="">
                     <h2>статьи</h2>
+                    @if($sub = S::get('articles_subtitle'))
+                        <p>{{ $sub }}</p>
+                    @endif
                 </div>
             </div>
         </div>
@@ -52,7 +55,6 @@
 
 <div class="site-section py-5">
     <div class="container">
-
         <div class="row">
             <div class="col-lg-6">
                 <div class="mb-5 d-flex blog-entry" data-aos="fade-right" data-aos-delay="">
@@ -71,7 +73,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="col-lg-6">
                 <div class="mb-5 d-flex blog-entry" data-aos="fade-right" data-aos-delay="">
                     <a href="#" class="blog-thumbnail"><img src="images/фото_1_Подпорные стенки.jpg" alt="Image"

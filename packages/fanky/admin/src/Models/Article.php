@@ -4,7 +4,9 @@ use App\Classes\SiteHelper;
 use App\Traits\HasImage;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 use Thumb;
 
 /**
@@ -59,13 +61,20 @@ class Article extends Model {
 
 	const UPLOAD_URL = '/uploads/articles/';
 
-	public static $thumbs = [
-		1 => '100x100', //admin
-	];
+    public static $thumbs = [
+        1 => '100x50', //admin
+        2 => '150x104', //articles_list
+    ];
 
 	public function scopePublic($query) {
 		return $query->where('published', 1);
 	}
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(ArticleImage::class, 'article_id')
+            ->orderBy('order');
+    }
 
 	public function getUrlAttribute(): string
     {
@@ -86,4 +95,10 @@ class Article extends Model {
 
 		return $items;
 	}
+
+    public function getAnnounce() {
+        $text = $this->announce ?: $this->text;
+
+        return Str::limit($text, S::get('articles_announce_length', 123));
+    }
 }

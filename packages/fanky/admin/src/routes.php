@@ -98,6 +98,24 @@ Route::group(['namespace' => 'Fanky\Admin\Controllers', 'prefix' => 'admin', 'as
 
         Route::post('delete/{id}', $controller . 'postDelete')
             ->name('.delete');
+
+        Route::post('delete-image/{id}', $controller . 'postDeleteImage')
+            ->name('.delete-image');
+
+        Route::post('article-image-upload/{id}', $controller . 'postArticleImageUpload')
+            ->name('.articleImageUpload');
+
+        Route::post('article-image-delete/{id}', $controller . 'postArticleImageDelete')
+            ->name('.articleImageDel');
+
+        Route::post('article-image-order', $controller . 'postArticleImageOrder')
+            ->name('.articleImageOrder');
+
+        Route::post('image-edit/{id}', $controller . 'postImageEdit')
+            ->name('.imageEdit');
+
+        Route::post('image-data-save/{id}', $controller . 'postImageDataSave')
+            ->name('.imageDataSave');
     });
 
     Route::group(['as' => '.archive', 'prefix' => 'archive'], function () {
@@ -117,141 +135,28 @@ Route::group(['namespace' => 'Fanky\Admin\Controllers', 'prefix' => 'admin', 'as
             ->name('.delete-image');
     });
 
-
-//	Route::group(['as' => '.catalog', 'prefix' => 'catalog'], function () {
-//		$controller  = 'AdminCatalogController@';
-//		Route::get('/', [AdminCatalogController::class, 'getIndex']);
-//
-//		Route::get('products/{id?}', $controller . 'getProducts')
-//			->name('.products');
-//
-//		Route::post('catalog-edit/{id?}', $controller . 'postCatalogEdit')
-//			->name('.catalogEdit');
-//
-//		Route::get('catalog-edit/{id?}', $controller . 'getCatalogEdit')
-//			->name('.catalogEdit');
-//
-//		Route::post('catalog-save', $controller . 'postCatalogSave')
-//			->name('.catalogSave');
-//
-//		Route::post('catalog-reorder', $controller . 'postCatalogReorder')
-//			->name('.catalogReorder');
-//
-//		Route::post('catalog-delete/{id}', $controller . 'postCatalogDelete')
-//			->name('.catalogDel');
-//
-//        Route::post('catalog-image-delete/{id}', $controller . 'postCatalogImageDelete')
-//            ->name('.catalogImageDel');
-//
-//        Route::post('catalog-gallery-upload/{id}', $controller . 'postCatalogGalleryUpload')
-//            ->name('.catalogGalleryUpload');
-//
-//        Route::post('catalog-gallery-item-delete/{id}', $controller . 'postCatalogGalleryItemDelete')
-//            ->name('.catalogGalleryItemDelete');
-//
-//        Route::post('catalog-gallery-item-edit/{id}', $controller . 'postCatalogGalleryItemEdit')
-//            ->name('.catalogGalleryItemEdit');
-//
-//        Route::post('catalog-gallery-item-save/{id}', $controller . 'postCatalogGalleryItemSave')
-//            ->name('.catalogGalleryItemSave');
-//
-//        Route::post('catalog-gallery-order', $controller . 'postCatalogGalleryOrder')
-//            ->name('.catalogGalleryOrder');
-//
-//		Route::get('product-edit/{id?}', $controller . 'getProductEdit')
-//			->name('.productEdit');
-//
-//		Route::post('product-save', $controller . 'postProductSave')
-//			->name('.productSave');
-//
-//		Route::post('product-reorder', $controller . 'postProductReorder')
-//			->name('.productReorder');
-//
-//		Route::post('update-order/{id}', $controller . 'postUpdateOrder')
-//			->name('.update-order');
-//
-//		Route::post('product-delete/{id}', $controller . 'postProductDelete')
-//			->name('.productDel');
-//
-//		Route::post('product-image-upload/{id}', $controller . 'postProductImageUpload')
-//			->name('.productImageUpload');
-//
-//		Route::post('product-image-delete/{id}', $controller . 'postProductImageDelete')
-//			->name('.productImageDel');
-//
-//		Route::post('product-image-order', $controller . 'postProductImageOrder')
-//			->name('.productImageOrder');
-//
-//		Route::get('get-catalogs/{id?}', $controller . 'getGetCatalogs')
-//			->name('.get_catalogs');
-//
-//        //features
-//        Route::post('catalog-features-upload/{id}', $controller . 'postCatalogFeaturesUpload')
-//            ->name('.catalogFeaturesUpload');
-//
-//        Route::post('catalog-feature-delete/{id}', $controller . 'postCatalogFeatureDelete')
-//            ->name('.catalogFeatureDelete');
-//
-//        Route::post('catalog-features-order', $controller . 'postCatalogFeaturesOrder')
-//            ->name('.catalogFeaturesOrder');
-//
-//        Route::post('catalog-features-edit/{id}', $controller . 'postCatalogFeatureEdit')
-//            ->name('.catalogFeatureEdit');
-//
-//        Route::post('catalog-features-save/{id}', $controller . 'postCatalogFeatureSave')
-//            ->name('.catalogFeaturesSave');
-//	});
-//
-//    Route::group(['as' => '.contacts', 'prefix' => 'contacts'], function () {
-//        $controller = 'AdminContactsController@';
-//        Route::get('/', $controller . 'getIndex');
-//
-//        Route::get('edit/{id?}', $controller . 'getEdit')
-//            ->name('.edit');
-//
-//        Route::post('save', $controller . 'postSave')
-//            ->name('.save');
-//
-//        Route::post('delete/{id}', $controller . 'postDelete')
-//            ->name('.delete');
-//
-//        Route::post('update-order/{id}', $controller . 'postUpdateOrder')
-//            ->name('.update-order');
-//    });
-//
-//    Route::group(['as' => '.orders', 'prefix' => 'orders'], function () {
-//		$controller = 'AdminOrdersController@';
-//		Route::get('/', $controller . 'getIndex');
-//
-//		Route::get('view/{id?}', $controller . 'getView')
-//			->name('.view');
-//
-//		Route::post('del/{id}', $controller . 'postDelete')
-//			->name('.del');
-//	});
-//
-//	Route::group(['as' => '.gallery', 'prefix' => 'gallery'], function () {
-//		$controller = 'AdminGalleryController@';
-//		Route::get('/', $controller . 'anyIndex');
-//		Route::post('gallery-save', $controller . 'postGallerySave')
-//			->name('.gallerySave');
-//		Route::post('gallery-edit/{id?}', $controller . 'postGalleryEdit')
-//			->name('.gallery_edit');
-//		Route::post('gallery-delete/{id}', $controller . 'postGalleryDelete')
-//			->name('.galleryDel');
-//		Route::any('items/{id}', $controller . 'anyItems')
-//			->name('.items');
-//		Route::post('image-upload/{id}', $controller . 'postImageUpload')
-//			->name('.imageUpload');
-//		Route::post('image-edit/{id}', $controller . 'postImageEdit')
-//			->name('.imageEdit');
-//		Route::post('image-data-save/{id}', $controller . 'postImageDataSave')
-//			->name('.imageDataSave');
-//		Route::post('image-del/{id}', $controller . 'postImageDelete')
-//			->name('.imageDel');
-//		Route::post('image-order', $controller . 'postImageOrder')
-//			->name('.order');
-//	});
+	Route::group(['as' => '.gallery', 'prefix' => 'gallery'], function () {
+		$controller = 'AdminGalleryController@';
+		Route::get('/', $controller . 'anyIndex');
+		Route::post('gallery-save', $controller . 'postGallerySave')
+			->name('.gallerySave');
+		Route::post('gallery-edit/{id?}', $controller . 'postGalleryEdit')
+			->name('.gallery_edit');
+		Route::post('gallery-delete/{id}', $controller . 'postGalleryDelete')
+			->name('.galleryDel');
+		Route::any('items/{id}', $controller . 'anyItems')
+			->name('.items');
+		Route::post('image-upload/{id}', $controller . 'postImageUpload')
+			->name('.imageUpload');
+		Route::post('image-edit/{id}', $controller . 'postImageEdit')
+			->name('.imageEdit');
+		Route::post('image-data-save/{id}', $controller . 'postImageDataSave')
+			->name('.imageDataSave');
+		Route::post('image-del/{id}', $controller . 'postImageDelete')
+			->name('.imageDel');
+		Route::post('image-order', $controller . 'postImageOrder')
+			->name('.order');
+	});
 
     Route::group(['as' => '.feedbacks', 'prefix' => 'feedbacks'], function () {
         $controller = 'AdminFeedbacksController@';

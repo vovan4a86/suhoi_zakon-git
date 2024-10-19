@@ -2,7 +2,7 @@
 
 @section('scripts')
     <script type="text/javascript" src="/adminlte/plugins/ckeditor/ckeditor.js"></script>
-    <script type="text/javascript" src="/adminlte/interface_article.js"></script>
+    <script type="text/javascript" src="/adminlte/interface_articles.js"></script>
 @stop
 
 @section('page_name')
@@ -28,9 +28,10 @@
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab_1" data-toggle="tab">Параметры</a></li>
                 <li><a href="#tab_2" data-toggle="tab">Текст</a></li>
+                <li><a href="#tab_3" data-toggle="tab">Галерея</a></li>
                 @if($article->id)
                     <li class="pull-right">
-                        <a href="{{ route('news.item', [$article->alias]) }}" target="_blank">Посмотреть</a>
+                        <a href="{{ route('articles.item', [$article->alias]) }}" target="_blank">Посмотреть</a>
                     </li>
                 @endif
             </ul>
@@ -48,7 +49,9 @@
                     {!! Form::groupText('og_description', $article->og_description, 'OpenGraph description') !!}
                     <div class="form-group">
                         <label for="article-image">Изображение</label>
-                        <input id="article-image" type="file" name="image" onchange="return newsImageAttache(this, event)">
+                        <input id="article-image" type="file" name="image"
+                               accept=".jpg,.jpeg,.png"
+                               onchange="return articleImageAttache(this, event)">
                         <div id="article-image-block">
                             @if ($article->image)
                                 <img class="img-polaroid" src="{{ $article->thumb(1) }}" height="100"
@@ -70,6 +73,29 @@
                 <div class="tab-pane" id="tab_2">
                     {!! Form::groupTextarea('announce', $article->announce, 'Краткое описание', ['rows' => 3]) !!}
                     {!! Form::groupRichtext('text', $article->text, 'Текст', ['rows' => 3]) !!}
+                </div>
+
+                <div class="tab-pane" id="tab_3">
+                    <input id="article-image" type="hidden" name="image" value="{{ $article->image }}">
+                    @if ($article->id)
+                        <div class="form-group">
+                            <label class="btn btn-success">
+                                <input id="offer_imag_upload" type="file" multiple
+                                       accept=".jpg,.jpeg,.png"
+                                       data-url="{{ route('admin.articles.articleImageUpload', $article->id) }}"
+                                       style="display:none;" onchange="articleImageUpload(this, event)">
+                                Загрузить изображения
+                            </label>
+                        </div>
+
+                        <div class="images_list">
+                            @foreach ($article->images as $image)
+                                @include('admin::articles.article_image', ['image' => $image])
+                            @endforeach
+                        </div>
+                    @else
+                        <p class="text-yellow">Изображения в галерею можно будет загрузить после сохранения статьи!</p>
+                    @endif
                 </div>
             </div>
 

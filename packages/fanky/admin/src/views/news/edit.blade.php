@@ -49,7 +49,9 @@
                     {!! Form::groupText('og_description', $article->og_description, 'OpenGraph description') !!}
                     <div class="form-group">
                         <label for="article-image">Изображение</label>
-                        <input id="article-image" type="file" name="image" onchange="return newsImageAttache(this, event)">
+                        <input id="article-image" type="file" name="image"
+                               accept=".jpg,.jpeg,.png"
+                               onchange="return newsImageAttache(this, event)">
                         <div id="article-image-block">
                             @if ($article->image)
                                 <img class="img-polaroid" src="{{ $article->thumb(1) }}" height="100"
@@ -79,6 +81,7 @@
                         <div class="form-group">
                             <label class="btn btn-success">
                                 <input id="offer_imag_upload" type="file" multiple
+                                       accept=".jpg,.jpeg,.png"
                                        data-url="{{ route('admin.news.newsImageUpload', $article->id) }}"
                                        style="display:none;" onchange="newsImageUpload(this, event)">
                                 Загрузить изображения

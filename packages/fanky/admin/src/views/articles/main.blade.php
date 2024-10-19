@@ -20,7 +20,7 @@
 @section('content')
 	<div class="box box-solid">
 		<div class="box-body">
-			@if (count($news))
+			@if (count($articles))
 				<table class="table table-striped">
 					<thead>
 						<tr>
@@ -31,7 +31,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						@foreach ($news as $item)
+						@foreach ($articles as $item)
 							<tr>
 								<td>{{ $item->dateFormat() }}</td>
 								<td style="text-align: center;">
@@ -48,7 +48,7 @@
 						@endforeach
 					</tbody>
 				</table>
-                {!! $news->render() !!}
+                {!! $articles->render() !!}
 			@else
 				<p>Нет статей!</p>
 			@endif
