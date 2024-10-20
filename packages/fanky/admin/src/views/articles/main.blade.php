@@ -27,6 +27,7 @@
 							<th width="100">Дата</th>
 							<th width="100">Изображение</th>
 							<th>Название</th>
+							<th width="100">На главной</th>
 							<th width="50"></th>
 						</tr>
 					</thead>
@@ -39,6 +40,7 @@
 										<img src="{{ $item->thumb(1) }}" alt="{{ $item->name }}">
 									@endif
 								</td>
+								<td width="100">{{ $item->on_main ? 'Да' : 'Нет' }}</td>
 								<td><a href="{{ route('admin.articles.edit', [$item->id]) }}">{{ $item->name }}</a></td>
 								<td>
 									<a class="glyphicon glyphicon-trash" href="{{ route('admin.articles.delete', [$item->id]) }}"

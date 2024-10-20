@@ -82,6 +82,10 @@ class News extends Model {
 		return $query->where('published', 1);
 	}
 
+	public function scopeOnMain($query) {
+		return $query->where('on_main', 1);
+	}
+
     public function images(): HasMany
     {
         return $this->hasMany(NewsImage::class, 'news_id')

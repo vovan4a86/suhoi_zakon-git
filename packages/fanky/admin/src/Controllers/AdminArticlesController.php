@@ -77,8 +77,8 @@ class AdminArticlesController extends AdminController {
 	}
 
     public function postDeleteImage($id) {
-        $news = News::find($id);
-        if(!$news) return ['success' => false, 'msg' => 'Новость не найдена'];
+        $news = Article::find($id);
+        if(!$news) return ['success' => false, 'msg' => 'Статья не найдена'];
 
         $news->deleteImage();
         $news->update(['image' => null]);

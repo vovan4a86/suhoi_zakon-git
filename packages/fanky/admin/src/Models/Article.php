@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use S;
 use Thumb;
 
 /**
@@ -69,6 +70,10 @@ class Article extends Model {
 	public function scopePublic($query) {
 		return $query->where('published', 1);
 	}
+
+    public function scopeOnMain($query) {
+        return $query->where('on_main', 1);
+    }
 
     public function images(): HasMany
     {

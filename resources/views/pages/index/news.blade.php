@@ -9,8 +9,8 @@
     </div>
 </div>
 
-@if(count($news))
-    @foreach($news as $i => $chunks)
+@if(count($news_chunks))
+    @foreach($news_chunks as $i => $chunks)
         <div class="ftco-service-image-1 pb-5">
             <div class="container">
                 <div class="owl-carousel owl-all">

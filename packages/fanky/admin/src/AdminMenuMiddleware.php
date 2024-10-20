@@ -26,6 +26,9 @@ class AdminMenuMiddleware {
 			$menu->add('Статьи', ['route' => 'admin.articles', 'icon' => 'fa-list'])
 				->active('/admin/articles/*');
 
+            $menu->add('Отзывы', ['route' => 'admin.reviews', 'icon' => 'fa-star'])
+                ->active('/admin/reviews/*');
+
 //			$menu->add('Галереи', ['route' => 'admin.gallery', 'icon' => 'fa-image'])
 //				->active('/admin/gallery/*');
 
@@ -35,8 +38,6 @@ class AdminMenuMiddleware {
 				->active('/admin/settings/*');
 			$menu->settings->add('Редиректы', ['route' => 'admin.redirects', 'icon' => 'fa-retweet'])
 				->active('/admin/redirects/*');
-//			$menu->add('Файловый менеджер', ['route' => 'admin.pages.filemanager', 'icon' => 'fa-file'])
-//				->active('/admin/pages/filemanager');
 		});
 
 		return $next($request);

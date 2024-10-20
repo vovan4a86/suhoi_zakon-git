@@ -66,7 +66,7 @@
                         </div>
                     </div>
 
-                    {!! Form::groupCheckbox('published', 1, $article->published, 'Показывать новость') !!}
+                    {!! Form::groupCheckbox('published', 1, $article->published, 'Показывать статью') !!}
                     {!! Form::groupCheckbox('on_main', 1, $article->on_main, 'Статья на главной') !!}
                 </div>
 
