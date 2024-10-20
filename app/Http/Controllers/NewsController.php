@@ -8,6 +8,7 @@ use View;
 
 class NewsController extends Controller {
 
+
 	public $bread = [];
 	protected $news_page;
 
@@ -76,7 +77,7 @@ class NewsController extends Controller {
 
 		return view('news.item', [
             'bread'       => $bread,
-            'date'        => $item->dateFormat('d F Y'),
+            'date'        => $item->dateFormat('F d, Y'),
             'h1'          => $item->getH1(),
             'text'        => $item->text,
             'announce'    => $item->announce,

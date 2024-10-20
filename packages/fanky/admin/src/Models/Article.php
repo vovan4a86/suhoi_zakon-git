@@ -1,7 +1,10 @@
 <?php namespace Fanky\Admin\Models;
 
 use App\Classes\SiteHelper;
+use App\Traits\HasH1;
 use App\Traits\HasImage;
+use App\Traits\HasSeo;
+use App\Traits\OgGenerate;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -56,9 +59,9 @@ use Thumb;
  */
 class Article extends Model {
 
-	use HasImage;
+    use HasImage, HasH1, OgGenerate, HasSeo;
 
-	protected $guarded = ['id'];
+    protected $guarded = ['id'];
 
 	const UPLOAD_URL = '/uploads/articles/';
 
@@ -89,8 +92,8 @@ class Article extends Model {
 	public function dateFormat($format = 'd.m.Y') {
 		if (!$this->date) return null;
 		$date =  date($format, strtotime($this->date));
-		$date = str_replace(array_keys(SiteHelper::$monthRu),
-			SiteHelper::$monthRu, $date);
+		$date = str_replace(array_keys(SiteHelper::$monthRu2),
+			SiteHelper::$monthRu2, $date);
 
 		return $date;
 	}

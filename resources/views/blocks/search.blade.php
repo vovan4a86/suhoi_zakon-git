@@ -1,4 +1,4 @@
-<div class="bg-image" style="background-image: url('images/news_big.jpg')" data-aos="fade">
+<div class="bg-image" style="background-image: url('/images/news_big.jpg')" data-aos="fade">
     <br>
     <div>
         <form action="#" class="search-form">

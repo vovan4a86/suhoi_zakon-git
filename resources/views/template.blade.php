@@ -4,13 +4,10 @@
 @include('blocks.head')
 
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-{{--@if(isset($h1))--}}
-{{--    <h1 class="v-hidden">{{ $h1 }}</h1>--}}
-{{--@endif--}}
 
 @include('blocks.header')
 
-@if(Route::is(['news', 'news.item']))
+@if(Route::is(['news', 'news.item', 'articles', 'articles.item']))
     @include('blocks.search')
 @endif
 

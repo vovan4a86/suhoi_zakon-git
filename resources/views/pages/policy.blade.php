@@ -1,28 +1,20 @@
 @extends('template')
 @section('content')
-    <main>
-        <!--section.hero-->
-        <section class="hero">
-            <div class="hero__view">
-                <picture>
-                    <img class="hero__img"
-                         src="{{ $page->image ? $page->image_src : '/static/images/common/hero-2.jpeg' }}"
-                         alt="policy"/>
-                </picture>
+    <main class="site-section">
+        <div class="container">
+            <div class="block-heading-1">
+                <h1 style="line-height:45px;">
+                    <p class="mb-7">
+                        {{ $h1 }}
+                    </p>
+                </h1>
             </div>
-            <div class="hero__container container">
-                <div class="hero__body">
-                    <h2 class="page-title">СДВ-СТРОЙ</h2>
-                    <div class="hero__subtitle">{{ $h1 }}</div>
-                </div>
-            </div>
-        </section>
-        <section class="s-content">
-            <div class="s-content__container container">
-                <div class="s-content__body text-block">
+
+            <div class="row">
+                <div class="col-md-8 blog-content">
                     {!! $text !!}
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 @stop

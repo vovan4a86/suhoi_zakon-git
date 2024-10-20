@@ -1,6 +1,7 @@
 <?php namespace Fanky\Admin\Models;
 
 use App\Classes\SiteHelper;
+use App\Traits\HasH1;
 use App\Traits\HasImage;
 use App\Traits\HasSeo;
 use App\Traits\OgGenerate;
@@ -65,7 +66,7 @@ use Carbon\Carbon;
  */
 class News extends Model {
 
-	use HasImage, OgGenerate, HasSeo;
+	use HasImage, HasH1, OgGenerate, HasSeo;
 
 	protected $table = 'news';
 
@@ -99,8 +100,8 @@ class News extends Model {
 	public function dateFormat($format = 'd.m.Y') {
 		if (!$this->date) return null;
 		$date =  date($format, strtotime($this->date));
-		$date = str_replace(array_keys(SiteHelper::$monthRu),
-			SiteHelper::$monthRu, $date);
+		$date = str_replace(array_keys(SiteHelper::$monthRu2),
+			SiteHelper::$monthRu2, $date);
 
 		return $date;
 	}

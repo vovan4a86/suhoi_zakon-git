@@ -47,6 +47,7 @@
 
                     {!! Form::groupText('og_title', $article->og_title, 'OpenGraph Title') !!}
                     {!! Form::groupText('og_description', $article->og_description, 'OpenGraph description') !!}
+
                     <div class="form-group">
                         <label for="article-image">Изображение</label>
                         <input id="article-image" type="file" name="image"
@@ -71,6 +72,7 @@
                 </div>
 
                 <div class="tab-pane" id="tab_2">
+                    {!! Form::groupText('video', $article->video, 'Ссылка на You Tube видео') !!}
                     {!! Form::groupTextarea('announce', $article->announce, 'Краткое описание', ['rows' => 3]) !!}
                     {!! Form::groupRichtext('text', $article->text, 'Текст', ['rows' => 3]) !!}
                 </div>

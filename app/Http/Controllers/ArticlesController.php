@@ -42,7 +42,7 @@ class ArticlesController extends Controller {
 	}
 
 	public function item($alias) {
-		$item = News::whereAlias($alias)->public()->first();
+		$item = Article::whereAlias($alias)->public()->first();
 
 		if (!$item) abort(404);
 		$bread = $this->bread;
@@ -62,10 +62,12 @@ class ArticlesController extends Controller {
 
 		return view('articles.item', [
             'bread'       => $bread,
-            'date'        => $item->dateFormat('d F Y'),
+            'date'        => $item->dateFormat('F d, Y'),
             'h1'          => $item->getH1(),
             'text'        => $item->text,
+            'announce'    => $item->announce,
             'item'        => $item,
+            'images'      => $item->images
         ]);
 	}
 }

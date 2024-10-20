@@ -1,3 +1,7 @@
+.v-hidden {
+    display: none;
+}
+
 .breadcrumbs__list {
     flex-wrap: wrap;
 }

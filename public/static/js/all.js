@@ -7,18 +7,6 @@
   \**********************************************/
 /***/ (() => {
 
-// import './jquery-3.3.1.min';
-// import './popper.min';
-// import './bootstrap.min';
-// import './owl.carousel.min';
-// import './jquery.sticky';
-// import './jquery.waypoints.min';
-// import './jquery.animateNumber.min';
-// import './jquery.fancybox.min';
-// import './jquery.easing.1.3';
-// import './aos';
-// import './dflip.min';
-
 AOS.init({
   duration: 800,
   easing: 'slide',
