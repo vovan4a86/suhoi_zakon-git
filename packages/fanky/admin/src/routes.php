@@ -4,6 +4,7 @@ use Fanky\Admin\Controllers\AdminCatalogController;
 
 Route::group(['namespace' => 'Fanky\Admin\Controllers', 'prefix' => 'admin', 'as' => 'admin'], function () {
 	Route::any('/', ['uses' => 'AdminController@main']);
+    Route::post('clear-cache', ['uses' => 'AdminController@postClearCache'])->name('.clear-cache');
 	Route::group(['as' => '.pages', 'prefix' => 'pages'], function () {
 		$controller  = 'AdminPagesController@';
 		Route::get('/', $controller . 'getIndex');

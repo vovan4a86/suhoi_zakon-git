@@ -1,0 +1,525 @@
+[2024-10-21 13:09:12] local.INFO: Detected N+1 Query  
+[2024-10-21 13:09:12] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\97a801316817ef576f49db64bba223b6.php:48
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Http\Controllers\WelcomeController.php:45
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Controller.php:54
+#48 \vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php:43
+#49 \vendor\laravel\framework\src\Illuminate\Routing\Route.php:260
+  
+[2024-10-21 13:09:13] local.INFO: Detected N+1 Query  
+[2024-10-21 13:09:13] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\9bb3d9466b206f2c0d24c858e416a6f7.php:21
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Exceptions\Handler.php:42
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php:51
+#48 \vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:146
+#49 \vendor\beyondcode\laravel-query-detector\src\QueryDetectorMiddleware.php:33
+  
+[2024-10-21 13:09:14] local.INFO: Detected N+1 Query  
+[2024-10-21 13:09:14] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\9bb3d9466b206f2c0d24c858e416a6f7.php:21
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Exceptions\Handler.php:42
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php:51
+#48 \vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:146
+#49 \vendor\beyondcode\laravel-query-detector\src\QueryDetectorMiddleware.php:33
+  
+[2024-10-21 13:09:14] local.INFO: Detected N+1 Query  
+[2024-10-21 13:09:14] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\9bb3d9466b206f2c0d24c858e416a6f7.php:21
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Exceptions\Handler.php:42
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php:51
+#48 \vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:146
+#49 \vendor\beyondcode\laravel-query-detector\src\QueryDetectorMiddleware.php:33
+  
+[2024-10-21 13:09:14] local.INFO: Detected N+1 Query  
+[2024-10-21 13:09:14] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\9bb3d9466b206f2c0d24c858e416a6f7.php:21
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Exceptions\Handler.php:42
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php:51
+#48 \vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:146
+#49 \vendor\beyondcode\laravel-query-detector\src\QueryDetectorMiddleware.php:33
+  
+[2024-10-21 13:09:15] local.INFO: Detected N+1 Query  
+[2024-10-21 13:09:15] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\9bb3d9466b206f2c0d24c858e416a6f7.php:21
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Exceptions\Handler.php:42
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php:51
+#48 \vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:146
+#49 \vendor\beyondcode\laravel-query-detector\src\QueryDetectorMiddleware.php:33
+  
+[2024-10-21 13:09:15] local.INFO: Detected N+1 Query  
+[2024-10-21 13:09:15] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\9bb3d9466b206f2c0d24c858e416a6f7.php:21
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Exceptions\Handler.php:42
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php:51
+#48 \vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:146
+#49 \vendor\beyondcode\laravel-query-detector\src\QueryDetectorMiddleware.php:33
+  
+[2024-10-21 13:09:17] local.INFO: Detected N+1 Query  
+[2024-10-21 13:09:17] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\9bb3d9466b206f2c0d24c858e416a6f7.php:21
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Exceptions\Handler.php:42
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php:51
+#48 \vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:146
+#49 \vendor\beyondcode\laravel-query-detector\src\QueryDetectorMiddleware.php:33
+  
+[2024-10-21 13:09:17] local.INFO: Detected N+1 Query  
+[2024-10-21 13:09:17] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\9bb3d9466b206f2c0d24c858e416a6f7.php:21
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Exceptions\Handler.php:42
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php:51
+#48 \vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:146
+#49 \vendor\beyondcode\laravel-query-detector\src\QueryDetectorMiddleware.php:33
+  
+[2024-10-21 13:14:27] local.INFO: Detected N+1 Query  
+[2024-10-21 13:14:27] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\97a801316817ef576f49db64bba223b6.php:48
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Http\Controllers\WelcomeController.php:45
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Controller.php:54
+#48 \vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php:43
+#49 \vendor\laravel\framework\src\Illuminate\Routing\Route.php:260
+  
+[2024-10-21 13:14:54] local.INFO: Detected N+1 Query  
+[2024-10-21 13:14:54] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\9bb3d9466b206f2c0d24c858e416a6f7.php:21
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Exceptions\Handler.php:42
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php:51
+#48 \vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:146
+#49 \vendor\beyondcode\laravel-query-detector\src\QueryDetectorMiddleware.php:33
+  
+[2024-10-21 13:14:54] local.INFO: Detected N+1 Query  
+[2024-10-21 13:14:54] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\9bb3d9466b206f2c0d24c858e416a6f7.php:21
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Exceptions\Handler.php:42
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php:51
+#48 \vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:146
+#49 \vendor\beyondcode\laravel-query-detector\src\QueryDetectorMiddleware.php:33
+  
+[2024-10-21 13:14:55] local.INFO: Detected N+1 Query  
+[2024-10-21 13:14:55] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\9bb3d9466b206f2c0d24c858e416a6f7.php:21
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Exceptions\Handler.php:42
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Pipeline.php:51
+#48 \vendor\laravel\framework\src\Illuminate\Pipeline\Pipeline.php:146
+#49 \vendor\beyondcode\laravel-query-detector\src\QueryDetectorMiddleware.php:33
+  
+[2024-10-21 13:35:34] local.INFO: Detected N+1 Query  
+[2024-10-21 13:35:34] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\97a801316817ef576f49db64bba223b6.php:48
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Http\Controllers\WelcomeController.php:45
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Controller.php:54
+#48 \vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php:43
+#49 \vendor\laravel\framework\src\Illuminate\Routing\Route.php:260
+  
+[2024-10-21 13:37:07] local.INFO: Detected N+1 Query  
+[2024-10-21 13:37:07] local.INFO: Model: Fanky\Admin\Models\Page
+Relation: public_children
+Num-Called: 5
+Call-Stack:
+#18 \storage\framework\views\00e84089e128533d4e50b8bf68529f85.php:55
+#20 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#21 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#22 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#23 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#24 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#25 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#26 \storage\framework\views\19978fad6cd51fd92fa47baf07c3916b.php:8
+#28 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#29 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#30 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#31 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#32 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#33 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#34 \storage\framework\views\97a801316817ef576f49db64bba223b6.php:48
+#36 \vendor\laravel\framework\src\Illuminate\Filesystem\Filesystem.php:125
+#37 \vendor\laravel\framework\src\Illuminate\View\Engines\PhpEngine.php:58
+#38 \vendor\laravel\framework\src\Illuminate\View\Engines\CompilerEngine.php:72
+#39 \vendor\laravel\framework\src\Illuminate\View\View.php:207
+#40 \vendor\laravel\framework\src\Illuminate\View\View.php:190
+#41 \vendor\laravel\framework\src\Illuminate\View\View.php:159
+#42 \vendor\laravel\framework\src\Illuminate\Http\Response.php:69
+#43 \vendor\laravel\framework\src\Illuminate\Http\Response.php:35
+#44 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:57
+#45 \vendor\laravel\framework\src\Illuminate\Routing\ResponseFactory.php:87
+#46 \app\Http\Controllers\WelcomeController.php:45
+#47 \vendor\laravel\framework\src\Illuminate\Routing\Controller.php:54
+#48 \vendor\laravel\framework\src\Illuminate\Routing\ControllerDispatcher.php:43
+#49 \vendor\laravel\framework\src\Illuminate\Routing\Route.php:260
+  

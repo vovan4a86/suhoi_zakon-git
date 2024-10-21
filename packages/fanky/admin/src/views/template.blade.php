@@ -31,7 +31,8 @@
                     <li><a href="{{ route('admin.users') }}" title="Пользователи"><i class="fa fa-fw fa-group"></i></a></li>
                     <li><a href="{{ route('admin.pages',['sitemap' => 1]) }}" title="Обновить sitemap.xml"><i
                                     class="fa fa-fw fa-sitemap" title="Обновить sitemap.xml"></i></a></li>
-                    <li><a href="{{ route('admin.pages',['clear_cache' => 1]) }}" title="Очистить кеш"><i
+                    <li><a href="{{ route('admin.clear-cache') }}" title="Очистить кеш"
+                           onclick="siteClearCache(this, event)"><i
                                     class="fa fa-fw fa-refresh" title="Очистить кеш"></i></a></li>
 {{--                    <li>--}}
 {{--                    <a href="{{ route('admin.pages',['update_search' => 1]) }}" title="Обновить поисковый индекс"><i class="fa fa-fw" title="Обновить поисковый индекс">S</i></a>--}}

@@ -134,9 +134,7 @@ return [
 		Illuminate\Translation\TranslationServiceProvider::class,
 		Illuminate\Validation\ValidationServiceProvider::class,
 		Illuminate\View\ViewServiceProvider::class,
-		Intervention\Image\ImageServiceProvider::class,
 		Collective\Html\HtmlServiceProvider::class,
-		HTMLMin\HTMLMin\HTMLMinServiceProvider::class,
 
 
 		/*
@@ -154,7 +152,6 @@ return [
 		Unisharp\Laravelfilemanager\LaravelFilemanagerServiceProvider::class,
 		App\Providers\RouteServiceProvider::class,
 		App\Providers\BroadcastServiceProvider::class,
-		Intervention\Image\ImageServiceProvider::class,
 
 		/*
 		 * My Providers
@@ -211,7 +208,7 @@ return [
 		'Form' => Collective\Html\FormFacade::class,
 		'Html' => Collective\Html\HtmlFacade::class,
 
-		'Image'     => Intervention\Image\Facades\Image::class,
+//		'Image'     => Intervention\Image\Facades\Image::class,
 		'Debugbar'  => Barryvdh\Debugbar\Facade::class,
 		/*
 		 * My Class Aliases

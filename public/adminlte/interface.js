@@ -104,6 +104,18 @@ function applyFormValidate(form, ErrMsg){
 	$(form).find('.invalid').eq(0).trigger('focus');
 }
 
+function siteClearCache(elem, e) {
+	e.preventDefault();
+	const url = $(elem).attr('href');
+	$('.fa-refresh').addClass('rotate');
+	sendAjax(url, {}, function (json) {
+		if (json.success) {
+			alert('Кэш очищен! 🤨');
+		}
+		$('.fa-refresh').removeClass('rotate');
+	})
+}
+
 var autoHideMsgNextId = 0;
 function autoHideMsg(color, text, time){
 	if (typeof time == 'undefined') time = 5000;

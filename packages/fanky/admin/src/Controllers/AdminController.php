@@ -34,4 +34,10 @@ class AdminController extends Controller {
 		]);
 	}
 
+    public function postClearCache(): array
+    {
+        \Cache::flush();
+
+        return ['success' => true];
+    }
 }
