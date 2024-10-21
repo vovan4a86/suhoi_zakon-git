@@ -27,7 +27,11 @@ Route::group(
 
         Route::any('archive', ['as' => 'archive', 'uses' => 'ArchiveController@index']);
         Route::any('archive/{year}', ['as' => 'archive.item', 'uses' => 'ArchiveController@item'])
-            ->where('archive', '([0-9]+)');
+            ->where('year', '([0-9]+)');
+
+        Route::any('magazines', ['as' => 'magazines', 'uses' => 'MagazinesController@index']);
+        Route::any('magazines/{id}', ['as' => 'magazines.item', 'uses' => 'MagazinesController@item'])
+            ->where('id', '([0-9]+)');
 
         Route::any('policy', ['as' => 'policy', 'uses' => 'PageController@policy']);
 

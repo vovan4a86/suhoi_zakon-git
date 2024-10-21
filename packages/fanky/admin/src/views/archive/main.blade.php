@@ -29,7 +29,7 @@
 								<td style="font-weight: bold" width="60">{{ $item->year }}</td>
 								<td style="text-align: start">
 									@foreach($item->magazines as $m)
-										<img src="{{ $m->thumb(1) }}" height="60" alt="cover" title="{{ $m->number }}">
+										<img src="{{ $m->thumb(1) }}" height="60" alt="cover" title="{{ $m->number_year }} ({{ $m->number_total }})">
 									@endforeach
 								</td>
 								<td width="60"><a class="glyphicon glyphicon-edit"

@@ -22,8 +22,6 @@ class AdminArchiveController extends AdminController {
 			$arc = new Archive();
 			$arc->published = 1;
 		}
-//        $m = $arc->magazines;
-//        dd($m);
 
 		return view('admin::archive.edit', ['arc' => $arc]);
 	}

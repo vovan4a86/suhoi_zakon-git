@@ -75,6 +75,7 @@ class Page extends Model
         'articles',
         'archive',
         'contacts',
+        'archive_full'
     ];
 
     public static function boot()

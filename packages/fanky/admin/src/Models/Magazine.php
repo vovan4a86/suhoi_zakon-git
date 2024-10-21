@@ -95,7 +95,7 @@ class Magazine extends Model {
 
 	public function getUrlAttribute(): string
     {
-		return route('articles.item', ['alias' => $this->alias]);
+		return route('magazines.item', ['id' => $this->id]);
 	}
 
 	public function dateFormat($format = 'd.m.Y') {
@@ -111,6 +111,10 @@ class Magazine extends Model {
 		$items = self::orderBy('date', 'desc')->public()->limit($count)->get();
 
 		return $items;
+	}
+
+	public static function lastNumber() {
+        return self::orderBy('number_total', 'desc')->public()->limit(1)->get();
 	}
 
     public function getAnnounce() {

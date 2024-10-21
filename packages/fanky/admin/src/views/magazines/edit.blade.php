@@ -77,7 +77,8 @@
 
                 {!! Form::groupSelect('archive_id', $archive,
                         $magazine->archive_id, 'Год') !!}
-                {!! Form::groupText('number', $magazine->number, 'Номер') !!}
+                {!! Form::groupText('number_year', $magazine->number_year, 'Номер в году') !!}
+                {!! Form::groupText('number_total', $magazine->number_total, 'Общий номер') !!}
 
                 {!! Form::groupCheckbox('published', 1, $magazine->published, 'Показывать журнал') !!}
                 {!! Form::groupCheckbox('on_main', 1, $magazine->on_main, 'На главной') !!}

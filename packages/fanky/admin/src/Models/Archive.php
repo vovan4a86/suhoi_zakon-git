@@ -78,7 +78,13 @@ class Archive extends Model {
     public function magazines(): HasMany
     {
         return $this->hasMany(Magazine::class)
-            ->orderBy('number');
+            ->orderBy('number_year');
+    }
+
+    public function public_magazines(): HasMany
+    {
+        return $this->magazines()
+            ->where('published', 1);
     }
 
 	public function getUrlAttribute(): string
