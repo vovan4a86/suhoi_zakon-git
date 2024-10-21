@@ -272,3 +272,19 @@ html, body{
 .modal-dialog{
   min-width: 650px !important;
 }
+
+.magazines_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.magazine-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.magazine-item .images_del {
+  top: 0;
+}

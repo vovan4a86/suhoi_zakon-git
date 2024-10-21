@@ -20,6 +20,12 @@ class AdminMenuMiddleware {
 			$menu->add('Структура сайта', ['route' => 'admin.pages', 'icon' => 'fa-sitemap'])
 				->active('/admin/pages/*');
 
+            $menu->add('Журналы', ['route' => 'admin.magazines', 'icon' => 'fa-book'])
+                ->active('/admin/magazines/*');
+
+            $menu->add('Архив', ['route' => 'admin.archive', 'icon' => 'fa-archive'])
+                ->active('/admin/archive/*');
+
 			$menu->add('Новости', ['route' => 'admin.news', 'icon' => 'fa-calendar'])
 				->active('/admin/news/*');
 

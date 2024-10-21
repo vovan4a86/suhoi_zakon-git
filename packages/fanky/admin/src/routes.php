@@ -132,8 +132,28 @@ Route::group(['namespace' => 'Fanky\Admin\Controllers', 'prefix' => 'admin', 'as
         Route::post('delete/{id}', $controller . 'postDelete')
             ->name('.delete');
 
-        Route::post('delete-image/{id}', $controller . 'postDeleteImage')
-            ->name('.delete-image');
+        Route::post('upload-magazine', $controller . 'postUploadMagazine')
+            ->name('.uploadMagazine');
+    });
+
+    Route::group(['as' => '.magazines', 'prefix' => 'magazines'], function () {
+        $controller = 'AdminMagazinesController@';
+        Route::get('/', $controller . 'getIndex');
+
+        Route::get('edit/{id?}', $controller . 'getEdit')
+            ->name('.edit');
+
+        Route::post('save', $controller . 'postSave')
+            ->name('.save');
+
+        Route::post('delete/{id}', $controller . 'postDelete')
+            ->name('.delete');
+
+        Route::post('delete-cover/{id}', $controller . 'postDeleteCover')
+            ->name('.deleteCover');
+
+        Route::post('delete-file', $controller . 'postDeleteFile')
+            ->name('.deleteFile');
     });
 
     Route::group(['as' => '.reviews', 'prefix' => 'reviews'], function () {

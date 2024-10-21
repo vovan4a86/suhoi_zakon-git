@@ -13,3 +13,4 @@
 # Project exclude paths
 /storage/debugbar/
 /storage/framework/
+/storage/logs/
