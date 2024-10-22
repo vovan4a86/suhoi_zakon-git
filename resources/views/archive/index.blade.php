@@ -39,10 +39,9 @@
                                             @if(count($item->public_magazines))
                                                 <ul>
                                                     @foreach($item->public_magazines()->limit(6)->get() as $m)
-
+                                                        <li><a href="{{ $m->url }}" style="height: 5px;">N{{ $m->number_year }}&nbsp; ({{ $item->year }} г.)</a>
+                                                        </li>
                                                     @endforeach
-                                                    <li><a href="{{ $m->url }}" style="height: 5px;">N{{ $m->number_year }}&nbsp; ({{ $item->year }} г.)</a>
-                                                    </li>
                                                 </ul>
                                             @endif
                                             <br>

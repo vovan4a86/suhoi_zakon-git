@@ -46,7 +46,7 @@ class AdminMagazinesController extends AdminController {
 		if (!array_get($data, 'on_main')) $data['on_main'] = 0;
 
         $rules = [
-            'number' => 'required',
+            'number_year' => 'required',
         ];
 
 		// валидация данных
@@ -67,7 +67,6 @@ class AdminMagazinesController extends AdminController {
             $file_name = Magazine::uploadFile($file);
             $data['file'] = $file_name;
         }
-        \Debugbar::log($data['file']);
 
 		// сохраняем страницу
 		$magazine = Magazine::find($id);

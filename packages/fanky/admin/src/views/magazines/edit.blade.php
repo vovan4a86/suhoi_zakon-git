@@ -25,6 +25,11 @@
 
         <div class="box box-solid">
             <div class="box-body">
+                @if($magazine->id)
+                    <span class="pull-right">
+                        <a href="{{ route('magazines.item', [$magazine->id]) }}" target="_blank">Посмотреть</a>
+                    </span>
+                @endif
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="form-group" style="display: flex; column-gap: 30px;">
@@ -79,6 +84,8 @@
                         $magazine->archive_id, 'Год') !!}
                 {!! Form::groupText('number_year', $magazine->number_year, 'Номер в году') !!}
                 {!! Form::groupText('number_total', $magazine->number_total, 'Общий номер') !!}
+
+                {!! Form::groupRichtext('announce', $magazine->announce, 'Анонс') !!}
 
                 {!! Form::groupCheckbox('published', 1, $magazine->published, 'Показывать журнал') !!}
                 {!! Form::groupCheckbox('on_main', 1, $magazine->on_main, 'На главной') !!}

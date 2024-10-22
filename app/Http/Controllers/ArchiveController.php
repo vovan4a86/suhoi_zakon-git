@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use Artesaos\SEOTools\Facades\SEOMeta;
 use Fanky\Admin\Models\Archive;
 use Fanky\Admin\Models\Article;
 use Fanky\Admin\Models\Page;
@@ -45,10 +46,11 @@ class ArchiveController extends Controller {
 		$item->setSeo();
 
         $h1 = $this->archive_page->getH1();
+        SEOMeta::setTitle($h1 . '/' . $item->year);
 
         Auth::init();
         if (Auth::user() && Auth::user()->isAdmin) {
-            View::share('admin_edit_link', route('admin.articles.edit', [$item->id]));
+            View::share('admin_edit_link', route('admin.archive.edit', [$item->id]));
         }
 
         $years = Archive::public()

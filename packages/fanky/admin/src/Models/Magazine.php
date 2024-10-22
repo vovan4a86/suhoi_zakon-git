@@ -117,9 +117,14 @@ class Magazine extends Model {
         return self::orderBy('number_total', 'desc')->public()->limit(1)->get();
 	}
 
-    public function getAnnounce() {
-        $text = $this->announce ?: $this->text;
+    public function getAnnounce($ul_class = 'list-unstyled ul-check success mb-5'): array|string|null
+    {
+        if(!$this->announce) return null;
 
-        return Str::limit($text, S::get('articles_announce_length', 123));
+        if(stripos($this->announce, '<ul>') !== false) {
+            return str_replace('<ul>', '<ul class="' . $ul_class .'">' , $this->announce);
+        }
+
+        return $this->announce;
     }
 }

@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use Fanky\Admin\Models\Archive;
 use Fanky\Admin\Models\Article;
 use Fanky\Admin\Models\News;
 use Fanky\Admin\Models\Page;
@@ -35,6 +36,22 @@ class WelcomeController extends Controller {
             ->limit(S::get('reviews_per_page', 6))
             ->get();
 
+        $years = Archive::public()
+            ->get();
+
+        $current_year = Archive::where('year', S::get('main_magazines_year', date('Y')))
+            ->public()
+            ->first();
+
+        $magazines_chunks = [];
+        if($current_year) {
+            $magazines = $current_year->magazines()
+                ->with('archive')
+                ->limit(S::get('magazines_per_page', 8))
+                ->get();
+
+            $magazines_chunks = $magazines->chunk(4);
+        }
 
         return response()->view('pages.index', [
             'page' => $page,
@@ -43,6 +60,8 @@ class WelcomeController extends Controller {
             'news_chunks' => $news_chunks,
             'articles_chunks' => $articles_chunks,
             'reviews' => $reviews,
+            'years' => $years,
+            'magazines_chunks' => $magazines_chunks
         ]);
     }
 }
