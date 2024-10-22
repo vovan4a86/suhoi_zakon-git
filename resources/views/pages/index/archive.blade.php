@@ -39,26 +39,22 @@
 
 @if(count($magazines_chunks) > 1)
     @foreach($magazines_chunks as $chunk)
-        <div class="site-section bg-light">
-            <div class="container">
-                <div class="row mb-4">
-                    @foreach($chunk as $item)
-                        @if(!$loop->first)
-                            <div class="mb-lg-0 col-lg-4 col-md-4 col-md-6 col-xl-3" data-aos="fade-up"
-                                 data-aos-delay="">
-                                @include('archive.magazine_item')
-                            </div>
-                        @endif
-                    @endforeach
-                </div>
-
-                @if($loop->last)
-                    <br><br>
-                    <div class="catside" align="center">
-                        <h3><a href="{{ route('archive') }}">смотреть весь архив >>> </a></h3>
+        @if(!$loop->first)
+            <div class="site-section bg-light">
+                <div class="container">
+                    <div class="row mb-4">
+                        @foreach($chunk as $item)
+                            @include('archive.magazine_item')
+                        @endforeach
                     </div>
-                @endif
+                    @if($loop->last)
+                        <br><br>
+                        <div class="catside" align="center">
+                            <h3><a href="{{ route('archive') }}">смотреть весь архив >>> </a></h3>
+                        </div>
+                    @endif
+                </div>
             </div>
-        </div>
+        @endif
     @endforeach
 @endif

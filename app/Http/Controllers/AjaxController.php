@@ -122,21 +122,21 @@ class AjaxController extends Controller
         ];
     }
 
-    //оставить заявку
-    public function postRequest(Request $request): array
+    //связаться с нами
+    public function postContactUs(): array
     {
-        $data = $request->only(['name', 'phone', 'email', 'text']);
+        $data = request()->only(['first_name', 'last_name', 'email', 'message']);
         $valid = Validator::make(
             $data,
             [
-                'name' => 'required',
-                'phone' => 'required',
+                'first_name' => 'required',
+                'last_name' => 'required',
                 'email' => 'required',
             ],
             [
-                'name.required' => 'Не заполнено поле Имя',
-                'phone.required' => 'Не заполнено поле Телефон',
-                'email.required' => 'Не заполнено поле Email',
+                'first_name.required' => 'Не заполнено поле имя',
+                'last_name.required' => 'Не заполнено поле фамилия',
+                'email.required' => 'Не заполнено поле email',
             ]
         );
 
@@ -152,7 +152,7 @@ class AjaxController extends Controller
                 'mail.feedback',
                 ['feedback' => $feedback],
                 function ($message) use ($feedback) {
-                    $title = $feedback->id . ' | Заявка | СДВ-СТРОЙ';
+                    $title = $feedback->id . ' | Связаться с нами | Сухой Закон';
                     $message->from($this->fromMail, $this->fromName)
                         ->to(Settings::get('feedback_email'))
                         ->subject($title);
@@ -161,120 +161,6 @@ class AjaxController extends Controller
 
             return ['success' => true];
         }
-    }
-
-    //обратный звонок
-    public function postCallback(Request $request): array
-    {
-        $data = $request->only(['name', 'phone']);
-        $valid = Validator::make(
-            $data,
-            [
-                'phone' => 'required',
-            ],
-            [
-                'phone.required' => 'Не заполнено поле Телефон',
-            ]
-        );
-
-        if ($valid->fails()) {
-            return ['errors' => $valid->messages()];
-        } else {
-            $feedback_data = [
-                'type' => 2,
-                'data' => $data
-            ];
-            $feedback = Feedback::create($feedback_data);
-            Mail::send(
-                'mail.feedback',
-                ['feedback' => $feedback],
-                function ($message) use ($feedback) {
-                    $title = $feedback->id . ' | Заказ звонка | СДВ-СТРОЙ';
-                    $message->from($this->fromMail, $this->fromName)
-                        ->to(Settings::get('feedback_email'))
-                        ->subject($title);
-                }
-            );
-
-            return ['success' => true];
-        }
-    }
-
-    //ОФОРМЛЕНИЕ ЗАКАЗА
-    public function postSendCartOrder(Request $request): array
-    {
-        $data = $request->only(
-            [
-                'name',
-                'phone',
-                'address',
-                'text',
-                'payment'
-            ]
-        );
-
-        $messages = array(
-            'name.required' => 'Не заполнено поле Имя',
-            'phone.required' => 'Не заполнено поле Телефон',
-        );
-
-        $valid = Validator::make(
-            $data,
-            [
-                'name' => 'required',
-                'phone' => 'required',
-            ],
-            $messages
-        );
-        if ($valid->fails()) {
-            return ['errors' => $valid->messages()];
-        }
-
-        $data['total_sum'] = Cart::sum();
-
-        $order = Order::query()->create($data);
-        $items = Cart::all();
-
-        foreach ($items as $item) {
-            $itemPrice = $item['price'] * $item['count'];
-            $order->products()->attach(
-                $item['id'],
-                [
-                    'count' => $item['count'],
-                    'price' => $itemPrice,
-                    'created_at' => Carbon::now(),
-                    'updated_at' => Carbon::now()
-                ]
-            );
-        }
-
-        $order_items = $order->products;
-        $all_count = 0;
-        $all_sum = 0;
-        foreach ($order_items as $item) {
-            $all_sum += $item->pivot->price;
-            $all_count += $item->pivot->count;
-        }
-
-        Mail::send(
-            'mail.order_table',
-            [
-                'order' => $order,
-                'items' => $order_items,
-                'all_count' => $all_count,
-                'all_sum' => $all_sum
-            ],
-            function ($message) use ($order) {
-                $title = $order->id . ' | Новый заказ | CДВ-СТРОЙ';
-                $message->from($this->fromMail, $this->fromName)
-                    ->to(Settings::get('feedback_email'))
-                    ->subject($title);
-            }
-        );
-
-        Cart::purge();
-
-        return ['success' => true, 'order_id' => $order->id];
     }
 
     public function search(Request $request)

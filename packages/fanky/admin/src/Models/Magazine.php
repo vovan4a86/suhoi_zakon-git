@@ -113,8 +113,12 @@ class Magazine extends Model {
 		return $items;
 	}
 
-	public static function lastNumber() {
-        return self::orderBy('number_total', 'desc')->public()->limit(1)->get();
+	public static function lastNumberUrl() {
+        $last = Magazine::orderBy('archive_id', 'desc')
+            ->orderByRaw("CAST(number_year as UNSIGNED) DESC")
+            ->first();
+
+        return $last->url;
 	}
 
     public function getAnnounce($ul_class = 'list-unstyled ul-check success mb-5'): array|string|null

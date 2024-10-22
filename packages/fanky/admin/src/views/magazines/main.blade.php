@@ -26,20 +26,23 @@
                     <tbody id="reviews-list">
                     @foreach ($magazines as $item)
                         <tr data-id="{{ $item->id }}">
-                            <td width="60" style="text-align: center">
+                            <td width="60" style="text-align: center; font-size:20px;">
                                 {{ $item->archive->year }}</td>
                             <td width="100">
                                 @if ($item->image)
-                                    <img src="{{ $item->thumb(1) }}" alt="image" height="75">
+                                    <img src="{{ $item->thumb(1) }}" alt="image" height="100">
                                 @else
                                     <img src="{{ \Fanky\Admin\Models\Magazine::PDF_IMAGE }}" alt="image">
                                 @endif
                             </td>
-                            <td>{{ $item->number }}</td>
+                            <td>
+                                <a class="glyphicon"
+                                   href="{{ route('admin.magazines.edit', [$item->id]) }}"
+                                   style="font-size:20px; color:orange;">
+                                    {{ $item->number_year }} ({{ $item->number_total }})
+                                </a>
+                            </td>
                             <td width="100">{{ $item->on_main ? 'На главной' : '' }}</td>
-                            <td width="60"><a class="glyphicon glyphicon-edit"
-                                              href="{{ route('admin.magazines.edit', [$item->id]) }}"
-                                              style="font-size:20px; color:orange;"></a></td>
                             <td width="60">
                                 <a class="glyphicon glyphicon-trash"
                                    href="{{ route('admin.magazines.delete', [$item->id]) }}"

@@ -78,6 +78,7 @@ class Archive extends Model {
     public function magazines(): HasMany
     {
         return $this->hasMany(Magazine::class)
+            ->orderByRaw("CAST(number_year as UNSIGNED) ASC")
             ->orderBy('number_year');
     }
 

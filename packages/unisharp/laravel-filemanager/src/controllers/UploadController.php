@@ -5,6 +5,7 @@ namespace Unisharp\Laravelfilemanager\controllers;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Log;
 use Intervention\Image\Facades\Image;
+use Intervention\Image\ImageManager;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Unisharp\Laravelfilemanager\Events\ImageIsUploading;
 use Unisharp\Laravelfilemanager\Events\ImageWasUploaded;
@@ -69,9 +70,8 @@ class UploadController extends LfmController
         try {
             if (parent::fileIsImage($file) && !in_array($file->getMimeType(), ['image/gif', 'image/svg+xml'])) {
                 // Handle image rotation
-                Image::make($file->getRealPath())
-                    ->orientate() //Apply orientation from exif data
-                    ->save($new_file_path);
+                $image = ImageManager::gd()->read($file->getRealPath());
+                $image->save($new_file_path);
 
                 // Generate a thumbnail
                 if (parent::imageShouldHaveThumb($file)) {
@@ -180,9 +180,9 @@ class UploadController extends LfmController
         parent::createFolderByPath(parent::getThumbPath());
 
         // create thumb image
-        Image::make(parent::getCurrentPath($new_filename))
-            ->fit(config('lfm.thumb_img_width', 200), config('lfm.thumb_img_height', 200))
-            ->save(parent::getThumbPath($new_filename));
+        $image = ImageManager::gd()->read(parent::getCurrentPath($new_filename));
+        $image->resize(200,  200);
+        $image->save(parent::getThumbPath($new_filename));
     }
 
     private function useFile($new_filename)

@@ -1,5 +1,5 @@
 <span class="images_item magazine-item" data-id="{{ $item->id }}">
-	<span class="magazine-name">{{ $item->number }}</span>
+	<span class="magazine-name">{{ $item->number_year }} ({{ $item->number_total }})</span>
 	<img class="img-polaroid" src="{{ $item->thumb(2) }}"
          style="cursor:pointer;" data-image="{{ $item->image_src }}"
          onclick="popupImage('{{ $item->image_src }}')" alt="magazine image">

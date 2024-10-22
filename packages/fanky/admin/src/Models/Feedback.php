@@ -51,15 +51,14 @@ class Feedback extends Model {
 	];
 
 	public static $types = array(
-        1 => 'Заявка',
-        2 => 'Заказ обратного звонка',
+        1 => 'Связаться с нами',
     );
 
     private static $fields = [
-    	'name' => 'Имя',
-    	'phone' => 'Телефон',
+    	'first_name' => 'Имя',
+    	'last_name' => 'Фамилия',
     	'email' => 'E-mail',
-    	'text' => 'Текст',
+    	'message' => 'Текст',
     ];
 
     public function scopeNotRead($query)

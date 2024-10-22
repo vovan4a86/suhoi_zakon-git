@@ -7,8 +7,7 @@ Route::get('robots.txt', 'PageController@robots')->name('robots');
 Route::group(
     ['prefix' => 'ajax', 'as' => 'ajax.'],
     function () {
-        Route::post('callback', 'AjaxController@postCallback')->name('callback');
-        Route::post('request', 'AjaxController@postRequest')->name('request');
+        Route::post('contact-us', 'AjaxController@postContactUs')->name('contact-us');
     }
 );
 

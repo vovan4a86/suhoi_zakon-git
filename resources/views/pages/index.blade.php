@@ -15,10 +15,10 @@
                             </h1>
                             <p class="mb-5">{{ $titles['subtitle'] }}</p>
                             <div class="form-group d-flex col-md-4">
-                                <a class="btn btn-primary text-white px-4" href="single_slider.html">Свежий номер</a>
+                                <a class="btn btn-primary text-white px-4" href="{{ \Fanky\Admin\Models\Magazine::lastNumberUrl() }}">Свежий номер</a>
                             </div>
                             <div class="form-group d-flex col-md-4">
-                                <a class="btn btn-primary text-white px-4" href="single_archive.html">Архив номеров</a>
+                                <a class="btn btn-primary text-white px-4" href="{{ route('archive') }}">Архив номеров</a>
                             </div>
 
                         </div>

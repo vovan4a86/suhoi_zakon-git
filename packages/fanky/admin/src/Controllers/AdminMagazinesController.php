@@ -13,7 +13,7 @@ class AdminMagazinesController extends AdminController {
 	public function getIndex()
 	{
 		$magazines = Magazine::orderBy('archive_id', 'desc')
-            ->orderBy('number_year')
+            ->orderByRaw("CAST(number_year as UNSIGNED) DESC")
             ->get();
 
 		return view('admin::magazines.main', ['magazines' => $magazines]);

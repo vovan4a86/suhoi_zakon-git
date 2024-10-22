@@ -15,6 +15,60 @@ AOS.init({
 jQuery(document).ready(function ($) {
   'use strict';
 
+  var resetForm = function resetForm(form) {
+    $(form).trigger('reset');
+    $(form).find('.err-msg-block').remove();
+    $(form).find('.has-error').remove();
+    $(form).find('.invalid').attr('title', '').removeClass('invalid');
+  };
+  var sendAjax = function sendAjax(url, data, callback, type) {
+    data = data || {};
+    if (typeof type == 'undefined') type = 'json';
+    $.ajax({
+      type: 'post',
+      url: url,
+      data: data,
+      // processData: false,
+      // contentType: false,
+      dataType: type,
+      beforeSend: function beforeSend(request) {
+        return request.setRequestHeader('X-CSRF-Token', $("meta[name='csrf-token']").attr('content'));
+      },
+      success: function success(json) {
+        if (typeof callback == 'function') {
+          callback(json);
+        }
+      },
+      error: function error(XMLHttpRequest, textStatus, errorThrown) {
+        alert('Не удалось выполнить запрос! Ошибка на сервере.');
+        console.log(errorThrown);
+      }
+    });
+  };
+
+  //перезвонить
+  $('#contact-us').submit(function (e) {
+    e.preventDefault();
+    var form = $(this);
+    var data = form.serialize();
+    var url = form.attr('action');
+    sendAjax(url, data, function (json) {
+      if (typeof json.errors !== 'undefined') {
+        var focused = false;
+        for (var key in json.errors) {
+          if (!focused) {
+            form.find('#' + key).focus();
+            focused = true;
+          }
+          form.find('#' + key).after('<span class="has-error">' + json.errors[key] + '</span>');
+        }
+        form.find('.form-res').after('<div class="err-msg-block has-error">Заполните, пожалуйста, обязательные поля.</div>');
+      } else {
+        resetForm(form);
+        alert('Сообщение отправлено!');
+      }
+    });
+  });
   $('.loader').delay(1000).fadeOut('slow');
   $('#overlayer').delay(1000).fadeOut('slow');
   var siteMenuClone = function siteMenuClone() {

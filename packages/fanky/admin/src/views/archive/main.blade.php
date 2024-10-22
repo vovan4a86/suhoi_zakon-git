@@ -26,14 +26,16 @@
 					<tbody id="archive-list">
 						@foreach ($archive as $item)
 							<tr data-id="{{ $item->id }}">
-								<td style="font-weight: bold" width="60">{{ $item->year }}</td>
+								<td style="font-weight: bold; text-align: center" width="120">
+									<a class="glyphicon"
+									   href="{{ route('admin.archive.edit', [$item->id]) }}" style="font-size:20px; color:orange;">
+										{{ $item->year }}
+									</a>
+								</td>
 								<td style="text-align: start">
 									@foreach($item->magazines as $m)
-										<img src="{{ $m->thumb(1) }}" height="60" alt="cover" title="{{ $m->number_year }} ({{ $m->number_total }})">
+										<img src="{{ $m->thumb(1) }}" height="100" alt="cover" title="{{ $m->number_year }} ({{ $m->number_total }})">
 									@endforeach
-								</td>
-								<td width="60"><a class="glyphicon glyphicon-edit"
-												  href="{{ route('admin.archive.edit', [$item->id]) }}" style="font-size:20px; color:orange;"></a>
 								</td>
 								<td width="60">
 									<a class="glyphicon glyphicon-trash" href="{{ route('admin.archive.delete', [$item->id]) }}"

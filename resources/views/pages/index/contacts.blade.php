@@ -16,26 +16,26 @@
         </div>
         <div class="row">
             <div class="col-lg-6 mb-5" data-aos="fade-up" data-aos-delay="100">
-                <form action="#" method="post">
+                <form id="contact-us" action="{{ route('ajax.contact-us') }}" method="post">
                     <div class="form-group row">
                         <div class="col-md-6 mb-4 mb-lg-0">
-                            <input type="text" class="form-control" placeholder="Имя">
+                            <input type="text" class="form-control" name="first_name" placeholder="Имя">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Фамилия">
+                            <input type="text" class="form-control" name="last_name" placeholder="Фамилия">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-md-12">
-                            <input type="text" class="form-control" placeholder="Адрес электронной почты">
+                            <input type="text" class="form-control" name="email" placeholder="Адрес электронной почты">
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <div class="col-md-12">
-              <textarea name="message" class="form-control" placeholder="Напишите сообщение..." cols="30"
-                        rows="10"></textarea>
+                          <textarea name="message" class="form-control" placeholder="Напишите сообщение..." cols="30"
+                                    rows="10"></textarea>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -44,6 +44,7 @@
                                    value="Отправить сообщение">
                         </div>
                     </div>
+                    <div class="form-res"></div>
                 </form>
             </div>
 
