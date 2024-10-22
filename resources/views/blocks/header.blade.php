@@ -53,13 +53,13 @@
                         <li><a href="{{ route('main') }}" class="nav-link">Главная</a></li>
                         @foreach($header_menu as $item)
                             @if(!count($item->public_children))
-                                <li><a href="#{{ $item->alias }}" class="nav-link">{{ $item->name }}</a></li>
+                                <li><a href="/#{{ $item->alias }}" class="nav-link">{{ $item->name }}</a></li>
                             @else
                                 <li class="has-children">
-                                    <a href="#{{ $item->alias }}" class="nav-link">{{ $item->name }}</a>
+                                    <a href="/#{{ $item->alias }}" class="nav-link">{{ $item->name }}</a>
                                     <ul class="dropdown arrow-top">
                                         @foreach($item->public_children as $child)
-                                            <li><a href="#{{ $child->alias }}" class="nav-link">{{ $child->name }}</a></li>
+                                            <li><a href="/#{{ $child->alias }}" class="nav-link">{{ $child->name }}</a></li>
                                         @endforeach
                                     </ul>
                             @endif

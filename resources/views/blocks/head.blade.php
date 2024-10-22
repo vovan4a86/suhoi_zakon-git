@@ -25,13 +25,13 @@
     <link rel="stylesheet" type="text/css" href="{{ mix('static/css/all.css') }}" media="all">
     <script src="{{ mix('static/js/all.js') }}" defer></script>
 
-{{--    <script src="js/dflip.min.js" type="text/javascript" defer></script>--}}
+
 
     @if(isset($canonical))
         <link rel="canonical" href="{{ $canonical }}"/>
     @endif
 
-{{--    @if(Route::is('contacts'))--}}
-{{--        <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>--}}
-{{--    @endif--}}
+    @if(Route::is('magazines.item'))
+            <script src="/static/js/dflip.min.js" type="text/javascript" defer></script>
+    @endif
 </head>
