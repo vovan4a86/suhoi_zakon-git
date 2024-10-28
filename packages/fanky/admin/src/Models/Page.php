@@ -175,7 +175,7 @@ class Page extends Model
     public function getUrlAttribute(): string
     {
         if(in_array($this->alias, self::$anchorLinks)) {
-            return '/#' . $this->alias;
+            return route('main') . '/#' . $this->alias;
         }
 
         if ($this->_url) {

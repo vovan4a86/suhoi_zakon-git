@@ -10,8 +10,11 @@ namespace App\Classes;
 
 use App;
 use Carbon\Carbon;
+use Fanky\Admin\Models\Article;
 use Fanky\Admin\Models\Catalog as Catalog;
 use Cache;
+use Fanky\Admin\Models\Magazine;
+use Fanky\Admin\Models\News;
 use Fanky\Admin\Models\Page;
 use Fanky\Admin\Models\Redirect;
 use Fanky\Admin\Models\Product;
@@ -160,7 +163,8 @@ class SiteHelper {
 			if($page->id == 1){
 				$url = url('/');
 			} else {
-				$url = $parent_url . '/' . $page->alias;
+//                $url = $parent_url . '/' . $page->alias;
+                $url = $page->url;
 			}
 
 			$map->add_url($url);
@@ -185,13 +189,25 @@ class SiteHelper {
 		self::recurseAddPages($map);
 
 		//разделы каталога
-		self::recurseAddCatalog($map);
+//		self::recurseAddCatalog($map);
 
-		//товары
-//		$products = Product::wherePublished(1)->get();
-//		foreach ($products as $item) {
-//			$map->add_url($item->url);
-//		}
+		//новости
+		$news = News::wherePublished(1)->get();
+		foreach ($news as $item) {
+			$map->add_url($item->url);
+		}
+
+        //статьи
+        $articles = Article::wherePublished(1)->get();
+        foreach ($articles as $item) {
+            $map->add_url($item->url);
+        }
+
+        //журналы
+        $magazines = Magazine::wherePublished(1)->get();
+        foreach ($magazines as $item) {
+            $map->add_url($item->url);
+        }
 
 		$map->save('sitemap.xml');
 	}
