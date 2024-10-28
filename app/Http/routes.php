@@ -32,6 +32,8 @@ Route::group(
         Route::any('magazines/{id}', ['as' => 'magazines.item', 'uses' => 'MagazinesController@item'])
             ->where('id', '([0-9]+)');
 
+        Route::any('search', ['as' => 'search', 'uses' => 'PageController@search']);
+
         Route::any('policy', ['as' => 'policy', 'uses' => 'PageController@policy']);
 
         Route::any('{alias}', ['as' => 'default', 'uses' => 'PageController@page'])

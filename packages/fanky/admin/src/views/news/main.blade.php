@@ -21,14 +21,13 @@
 	<div class="box box-solid">
 		<div class="box-body">
 			@if (count($news))
-				<table class="table table-striped">
+				<table class="table table-striped news-table">
 					<thead>
 						<tr>
 							<th width="100">Дата</th>
 							<th width="100">Изображение</th>
 							<th>Название</th>
-							<th width="100">На главной</th>
-							<th width="50"></th>
+							<th width="50">X</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -41,7 +40,7 @@
 									@endif
 								</td>
 								<td><a href="{{ route('admin.news.edit', [$item->id]) }}">{{ $item->name }}</a></td>
-								<td width="100">{{ $item->on_main ? 'Да' : 'Нет' }}</td>
+{{--								<td width="100">{{ $item->on_main ? 'Да' : 'Нет' }}</td>--}}
 								<td>
 									<a class="glyphicon glyphicon-trash" href="{{ route('admin.news.delete', [$item->id]) }}"
 									   style="font-size:20px; color:red;" title="Удалить" onclick="return newsDel(this)"></a>
@@ -50,7 +49,7 @@
 						@endforeach
 					</tbody>
 				</table>
-                {!! $news->render() !!}
+				{!! Pagination::render('admin::pagination') !!}
 			@else
 				<p>Нет новостей!</p>
 			@endif

@@ -17,23 +17,22 @@ class WelcomeController extends Controller {
         $page->setSeo();
 
         $news = News::public()
-            ->onMain()
             ->orderByDesc('date')
-            ->limit(S::get('news_per_page', 6))
+            ->limit(S::get('main_news_per_page', 6))
             ->get();
         $news_chunks = $news->chunk(3);
 
         $articles = Article::public()
             ->onMain()
             ->orderByDesc('date')
-            ->limit(S::get('articles_per_page', 4))
+            ->limit(S::get('main_articles_per_page', 4))
             ->get();
         $articles_chunks = $articles->chunk(2);
 
         $reviews = Review::public()
             ->onMain()
             ->orderByDesc('date')
-            ->limit(S::get('reviews_per_page', 6))
+            ->limit(S::get('main_reviews_per_page', 6))
             ->get();
 
         $years = Archive::public()
@@ -47,7 +46,7 @@ class WelcomeController extends Controller {
         if($current_year) {
             $magazines = $current_year->magazines()
                 ->with('archive')
-                ->limit(S::get('magazines_per_page', 8))
+                ->limit(S::get('main_magazines_per_page', 8))
                 ->get();
 
             $magazines_chunks = $magazines->chunk(4);

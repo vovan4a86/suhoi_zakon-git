@@ -68,12 +68,12 @@
                     </div>
 
                     {!! Form::groupCheckbox('published', 1, $article->published, 'Показывать новость') !!}
-                    {!! Form::groupCheckbox('on_main', 1, $article->on_main, 'Новость на главной') !!}
+{{--                    {!! Form::groupCheckbox('on_main', 1, $article->on_main, 'Новость на главной') !!}--}}
                 </div>
 
                 <div class="tab-pane" id="tab_2">
+                    {!! Form::groupTextarea('announce', $article->announce, 'Краткое описание/вступление', ['rows' => 3]) !!}
                     {!! Form::groupText('video', $article->video, 'Ссылка на You Tube видео') !!}
-                    {!! Form::groupTextarea('announce', $article->announce, 'Краткое описание', ['rows' => 3]) !!}
                     {!! Form::groupRichtext('text', $article->text, 'Текст', ['rows' => 3]) !!}
                 </div>
 

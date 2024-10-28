@@ -4,9 +4,6 @@
             <div class="col-lg-4 mb-5 mb-lg-0">
                 <div class="block-heading-1" data-aos="fade-right" data-aos-delay="">
                     <h2>статьи</h2>
-{{--                    @if($sub = S::get('articles_subtitle'))--}}
-{{--                        <p>{{ $sub }}</p>--}}
-{{--                    @endif--}}
                 </div>
             </div>
         </div>
@@ -39,3 +36,7 @@
         @endif
     @endforeach
 @endif
+
+<div class="catside mb-lg-5 pb-2" align="center">
+    <h3><a href="{{ route('articles') }}">все статьи &gt;&gt;&gt; </a></h3>
+</div>

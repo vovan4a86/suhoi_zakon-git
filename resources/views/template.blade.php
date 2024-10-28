@@ -7,7 +7,7 @@
 
 @include('blocks.header')
 
-@if(Route::is(['news', 'news.item', 'articles', 'articles.item']))
+@if(Route::is(['news', 'news.item', 'articles', 'articles.item', 'search']))
     @include('blocks.search')
 @endif
 

@@ -27,8 +27,8 @@ class ArticlesController extends Controller {
         $page->ogGenerate();
         $page->setSeo();
 
-        $items = Article::public()->orderBy('order')
-            ->paginate(Settings::get('articles_per_page', 9));
+        $items = Article::public()->orderBy('date', 'desc')
+            ->paginate(Settings::get('articles_per_page', 4));
 
         if (count(request()->query())) {
             View::share('canonical', route('articles'));

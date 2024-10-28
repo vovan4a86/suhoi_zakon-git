@@ -2,6 +2,7 @@
 
 use Fanky\Admin\Models\NewsImage;
 use Illuminate\Support\Str;
+use Pagination;
 use Request;
 use Validator;
 use Text;
@@ -10,7 +11,8 @@ use Fanky\Admin\Models\News;
 class AdminNewsController extends AdminController {
 
 	public function getIndex() {
-		$news = News::orderBy('date', 'desc')->paginate(100);
+		$news_query = News::orderBy('date', 'desc');
+        $news = Pagination::init($news_query, 50)->get();
 
 		return view('admin::news.main', ['news' => $news]);
 	}

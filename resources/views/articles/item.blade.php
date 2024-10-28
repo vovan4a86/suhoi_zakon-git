@@ -14,7 +14,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-8 blog-content">
+                <div class="col-md-{{ count($images) ? '8' : '12' }} blog-content">
                     @if($announce)
                         <p class="lead">{{ $announce }}</p>
                     @endif

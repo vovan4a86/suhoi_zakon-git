@@ -288,3 +288,7 @@ html, body{
 .magazine-item .images_del {
   top: 0;
 }
+
+.news-table td {
+  vertical-align: middle!important;
+}

@@ -4,7 +4,6 @@
         <div class="container">
             <div class="block-heading-1">
                 <span class="d-block mb-3 text-blacK" data-aos="fade-up">{{ $date }}
-{{--                  <span>&bullet;</span> от Михаила Бакина--}}
                 </span>
                 <h1 style="line-height:45px;">
                     <p class="mb-7">
@@ -33,7 +32,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-8 blog-content">
+                <div class="col-md-{{ count($images) ? '8' : '12' }} blog-content">
                     @if(!$item->video && $announce)
                         <p class="lead">{{ $announce }}</p>
                     @endif

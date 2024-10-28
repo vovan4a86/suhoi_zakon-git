@@ -27,23 +27,8 @@ class NewsController extends Controller {
         $page->setSeo();
 
         $items = News::orderBy('date', 'desc')
-            ->public()->paginate(Settings::get('news_per_page', 9));
+            ->public()->paginate(Settings::get('news_per_page', 6));
 
-        //обработка ajax-обращений, в routes добавить POST метод(!)
-        if (request()->ajax()) {
-            $view_items = [];
-            foreach ($items as $item) {
-                //добавляем новые элементы
-                $view_items[] = view('news.list_item', [
-                    'item' => $item,
-                ])->render();
-            }
-
-            return [
-                'items'      => $view_items,
-                'paginate' => view('paginations.links_limit', ['paginator' => $items])->render()
-            ];
-        }
 
         if (count(request()->query())) {
             View::share('canonical', route('news'));

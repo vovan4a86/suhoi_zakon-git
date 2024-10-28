@@ -1,10 +1,12 @@
 <?php
 
-use Fanky\Admin\Controllers\AdminCatalogController;
+use Fanky\Admin\Controllers\AdminController;
 
 Route::group(['namespace' => 'Fanky\Admin\Controllers', 'prefix' => 'admin', 'as' => 'admin'], function () {
 	Route::any('/', ['uses' => 'AdminController@main']);
     Route::post('clear-cache', ['uses' => 'AdminController@postClearCache'])->name('.clear-cache');
+    Route::post('update-search-index', [AdminController::class, 'postUpdateSearchIndex'])->name('.update-search-index');
+
 	Route::group(['as' => '.pages', 'prefix' => 'pages'], function () {
 		$controller  = 'AdminPagesController@';
 		Route::get('/', $controller . 'getIndex');

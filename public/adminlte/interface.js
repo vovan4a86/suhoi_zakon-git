@@ -116,6 +116,18 @@ function siteClearCache(elem, e) {
 	})
 }
 
+function updateSearchIndex(elem, e) {
+	e.preventDefault();
+	const url = $(elem).attr('href');
+	$('.search-index').addClass('rotate');
+	sendAjax(url, {}, function(json) {
+		if(json.success) {
+			alert('Поисковый индекс обновлен!');
+		}
+		$('.search-index').removeClass('rotate');
+	})
+}
+
 var autoHideMsgNextId = 0;
 function autoHideMsg(color, text, time){
 	if (typeof time == 'undefined') time = 5000;

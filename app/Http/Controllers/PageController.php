@@ -2,14 +2,13 @@
 namespace App\Http\Controllers;
 
 use App;
-use Fanky\Admin\Models\Gallery;
 use Fanky\Admin\Models\Page;
-use Fanky\Admin\Models\Product;
 use Fanky\Admin\Models\SearchIndex;
 use Fanky\Auth\Auth;
 use Illuminate\Http\Response;
 use Request;
-use SiteHelper;
+use S;
+use SEOMeta;
 use View;
 
 class PageController extends Controller
@@ -67,66 +66,26 @@ class PageController extends Controller
         );
     }
 
-    public function contacts()
-    {
-        $page = Page::whereAlias('contacts')->first();
-        if (!$page) {
-            abort(404, 'Страница не найдена');
+    public function search() {
+        $q = Request::get('q', '');
+
+        if (!$q) {
+            $items = [];
+        } else {
+            $items = SearchIndex::orWhere('name', 'LIKE', '%' . $q . '%')
+                ->orWhere('announce_text', 'LIKE', '%' . $q . '%')
+                ->orWhere('text', 'LIKE', '%' . $q . '%')
+                ->paginate(S::get('search_per_page', 6))
+                ->appends(['s' => $q]);
         }
-        $page->ogGenerate();
-        $page->setSeo();
 
-        return view(
-            'pages.contacts',
-            [
-                'page' => $page,
-                'text' => $page->text,
-                'h1' => $page->getH1(),
-            ]
-        );
-    }
+        SEOMeta::setTitle('Результат поиска «' . $q . '»');
+        \View::share('canonical', route('search'));
 
-    public function ordering()
-    {
-        $page = Page::whereAlias('ordering')->first();
-        if (!$page) {
-            abort(404, 'Страница не найдена');
-        }
-        $page->ogGenerate();
-        $page->setSeo();
-
-        return view(
-            'pages.ordering',
-            [
-                'page' => $page,
-                'text' => $page->text,
-                'text_after' => $page->text_after,
-                'h1' => $page->getH1(),
-            ]
-        );
-    }
-
-    public function about()
-    {
-        $page = Page::whereAlias('about')->first();
-        if (!$page) {
-            abort(404, 'Страница не найдена');
-        }
-        $page->ogGenerate();
-        $page->setSeo();
-
-        $about_gallery = Gallery::whereCode('about_gallery')->first();
-        $gallery = $about_gallery->items;
-
-        return view(
-            'pages.about',
-            [
-                'page' => $page,
-                'text' => $page->text,
-                'h1' => $page->getH1(),
-                'gallery' => $gallery
-            ]
-        );
+        return view('search.index', [
+            'items'       => $items,
+            'q'           => $q
+        ]);
     }
 
     public function robots()

@@ -17,7 +17,9 @@
                     @foreach($chunks as $item)
                         <div class="service text-center">
                             <a href="{{ $item->url }}">
-                                <img src="{{ $item->thumb(2) }}" alt="{{ $item->name }}" class="img-fluid">
+                                @if($item->image)
+                                    <img src="{{ $item->thumb(2) }}" alt="{{ $item->name }}" class="img-fluid">
+                                @endif
                             </a>
                             <div class="px-md-3">
                                 <h3><a href="{{ $item->url }}">{{ $item->name }}</a></h3>
@@ -31,3 +33,7 @@
         </div>
     @endforeach
 @endif
+
+<div class="catside mb-lg-5 pb-2" align="center">
+    <h3><a href="{{ route('news') }}">все новости &gt;&gt;&gt; </a></h3>
+</div>

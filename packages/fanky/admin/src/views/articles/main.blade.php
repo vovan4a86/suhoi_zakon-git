@@ -40,8 +40,8 @@
 										<img src="{{ $item->thumb(1) }}" alt="{{ $item->name }}">
 									@endif
 								</td>
-								<td width="100">{{ $item->on_main ? 'Да' : 'Нет' }}</td>
 								<td><a href="{{ route('admin.articles.edit', [$item->id]) }}">{{ $item->name }}</a></td>
+								<td width="100">{{ $item->on_main ? 'Да' : 'Нет' }}</td>
 								<td>
 									<a class="glyphicon glyphicon-trash" href="{{ route('admin.articles.delete', [$item->id]) }}"
 									   style="font-size:20px; color:red;" title="Удалить" onclick="return articleDel(this)"></a>
@@ -50,7 +50,8 @@
 						@endforeach
 					</tbody>
 				</table>
-                {!! $articles->render() !!}
+				{!! Pagination::render('admin::pagination') !!}
+
 			@else
 				<p>Нет статей!</p>
 			@endif

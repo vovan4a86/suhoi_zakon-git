@@ -2,6 +2,7 @@
 
 use Fanky\Admin\Models\Article;
 use Fanky\Admin\Models\ArticleImage;
+use Pagination;
 use Request;
 use Validator;
 use Text;
@@ -9,7 +10,8 @@ use Text;
 class AdminArticlesController extends AdminController {
 
 	public function getIndex() {
-		$articles = Article::orderBy('date', 'desc')->paginate(100);
+		$articles_query = Article::orderBy('date', 'desc');
+        $articles = Pagination::init($articles_query, 50)->get();
 
 		return view('admin::articles.main', ['articles' => $articles]);
 	}

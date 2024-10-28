@@ -75,7 +75,7 @@ class News extends Model {
 	const UPLOAD_URL = '/uploads/news/';
 
 	public static $thumbs = [
-		1 => '100x50', //admin
+		1 => '100x100', //admin
 		2 => '350x230', //news_list
 	];
 
