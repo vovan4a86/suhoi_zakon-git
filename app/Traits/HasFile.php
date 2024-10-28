@@ -90,7 +90,6 @@ trait HasFile{
         $file_name = $name ?: md5(uniqid(rand(), true)) . '_' . time() . '.' . Str::lower($file->getClientOriginalExtension());
         $file->move(public_path(self::UPLOAD_URL), $file_name);
 
-        \Debugbar::log($file_name);
 		return $file_name;
 	}
 }

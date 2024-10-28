@@ -5,7 +5,7 @@ function magazineCoverAttache(elem, e){
 	$.each(e.target.files, function(key, file)
 	{
 		if(file['size'] > max_file_size){
-			alert('Слишком большой размер файла. Максимальный размер 10Мб');
+			alert('Слишком большой размер файла. Максимальный размер 50Мб');
 		} else {
 			magazineCover = file;
 			renderImage(file, function (imgSrc) {
@@ -21,7 +21,7 @@ function magazineFileAttache(elem, e){
 	$.each(e.target.files, function(key, file)
 	{
 		if(file['size'] > max_file_size){
-			alert('Слишком большой размер файла. Максимальный размер 10Мб');
+			alert('Слишком большой размер файла. Максимальный размер 50Мб');
 		} else {
 			magazineFile = file;
 			renderImage(file, function () {

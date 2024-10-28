@@ -41,6 +41,9 @@
                                    style="font-size:20px; color:orange;">
                                     {{ $item->number_year }} ({{ $item->number_total }})
                                 </a>
+                                @if(!$item->file)
+                                    <b style="margin-left: 20px; color: red;">Файл журнала не загружен!</b>
+                                @endif
                             </td>
                             <td width="100">{{ $item->on_main ? 'На главной' : '' }}</td>
                             <td width="60">

@@ -1,4 +1,4 @@
-var max_file_size = 10097152;
+var max_file_size = 50097152;
 $(function(){
 	//iCheck for checkbox and radio inputs
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({

@@ -78,6 +78,13 @@ class Page extends Model
         'archive_full'
     ];
 
+    public static $anchorLinks = [
+        'about',
+        'redaction',
+        'reviews',
+        'contacts'
+    ];
+
     public static function boot()
     {
         parent::boot();
@@ -167,6 +174,10 @@ class Page extends Model
 
     public function getUrlAttribute(): string
     {
+        if(in_array($this->alias, self::$anchorLinks)) {
+            return '/#' . $this->alias;
+        }
+
         if ($this->_url) {
             return $this->_url;
         }

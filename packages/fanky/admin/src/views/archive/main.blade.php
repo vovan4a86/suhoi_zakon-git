@@ -34,7 +34,9 @@
 								</td>
 								<td style="text-align: start">
 									@foreach($item->magazines as $m)
-										<img src="{{ $m->thumb(1) }}" height="100" alt="cover" title="{{ $m->number_year }} ({{ $m->number_total }})">
+										<a href="{{ route('admin.magazines.edit', $m->id) }}">
+											<img src="{{ $m->thumb(1) }}" height="100" alt="cover" title="{{ $m->number_year }} ({{ $m->number_total }})">
+										</a>
 									@endforeach
 								</td>
 								<td width="60">

@@ -72,7 +72,7 @@
                                             <span class="glyphicon glyphicon-trash text-red"></span>
                                         </a>
                                     @else
-                                        <p class="text-yellow">Изображение не загружено.</p>
+                                        <p class="text-yellow">Журнал не загружен.</p>
                                     @endif
                                 </div>
                             </div>
