@@ -24,17 +24,18 @@
             <div class="col-md-4 ml-auto">
                 <div class="mb-5">
                     <h2 class="footer-heading mb-4">подписка на рассылку</h2>
-                    <form action="#" method="post" class="footer-suscribe-form">
+                    <form id="subscribe" action="{{ route('ajax.subscribe') }}" method="post" class="footer-suscribe-form">
                         <div class="input-group mb-3">
                             <input type="text" class="form-control border-secondary text-white bg-transparent"
                                    placeholder="Адрес эл.почты" aria-label="Enter Email"
-                                   aria-describedby="button-addon2">
+                                   name="email" aria-describedby="button-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary text-white" type="button" id="button-addon2">
+                                <button class="btn btn-primary text-white" type="submit" id="button-addon2">
                                     Подписаться
                                 </button>
                             </div>
                         </div>
+                        <div class="form-res"></div>
                     </form>
                 </div>
                 <ul class="list-unstyled">

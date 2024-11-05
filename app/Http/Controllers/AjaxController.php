@@ -8,6 +8,7 @@ use Fanky\Admin\Models\Feedback;
 use Fanky\Admin\Models\Order as Order;
 use Fanky\Admin\Models\Page;
 use Fanky\Admin\Models\Product;
+use Fanky\Admin\Models\Subscriber;
 use Illuminate\Http\Request;
 use Mail;
 
@@ -158,6 +159,51 @@ class AjaxController extends Controller
                         ->subject($title);
                 }
             );
+
+            return ['success' => true];
+        }
+    }
+
+    //связаться с нами
+    public function postSubscribe(): array
+    {
+        $data = request()->only(['email']);
+        $valid = Validator::make(
+            $data,
+            [
+                'email' => 'required',
+            ],
+            [
+                'email.required' => 'Не заполнено поле email',
+            ]
+        );
+
+        if ($valid->fails()) {
+            return ['errors' => $valid->messages()];
+        } else {
+            $user = Subscriber::whereEmail($data['email'])->first();
+
+            if(!$user) {
+                Subscriber::create([
+                    'email' => $data['email']
+                ]);
+
+                $feedback_data = [
+                    'type' => 2,
+                    'data' => $data
+                ];
+                $feedback = Feedback::create($feedback_data);
+                Mail::send(
+                    'mail.feedback',
+                    ['feedback' => $feedback],
+                    function ($message) use ($feedback) {
+                        $title = $feedback->id . ' | Подписка | Сухой Закон';
+                        $message->from($this->fromMail, $this->fromName)
+                            ->to(Settings::get('feedback_email'))
+                            ->subject($title);
+                    }
+                );
+            }
 
             return ['success' => true];
         }

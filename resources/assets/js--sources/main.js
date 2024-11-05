@@ -63,6 +63,30 @@ jQuery(document).ready(function ($) {
         });
     })
 
+    //подписаться
+    $('#subscribe').submit(function (e) {
+        e.preventDefault();
+        let form = $(this);
+        let data = form.serialize();
+        let url = form.attr('action');
+        sendAjax(url, data, function (json) {
+            if (typeof json.errors !== 'undefined') {
+                let focused = false;
+                for (let key in json.errors) {
+                    if (!focused) {
+                        form.find('#' + key).focus();
+                        focused = true;
+                    }
+                    form.find('#' + key).after('<span class="has-error">' + json.errors[key] + '</span>');
+                }
+                form.find('.form-res').after('<div class="err-msg-block has-error">Заполните, пожалуйста, обязательные поля.</div>');
+            } else {
+                resetForm(form);
+                alert('Вы успешно подписаны на рассылку!');
+            }
+        });
+    })
+
     $('.loader').delay(1000).fadeOut('slow');
     $('#overlayer').delay(1000).fadeOut('slow');
 

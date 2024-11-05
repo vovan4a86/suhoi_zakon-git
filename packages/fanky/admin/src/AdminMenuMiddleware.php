@@ -35,6 +35,9 @@ class AdminMenuMiddleware {
             $menu->add('Отзывы', ['route' => 'admin.reviews', 'icon' => 'fa-star'])
                 ->active('/admin/reviews/*');
 
+            $menu->add('Подписчики', ['route' => 'admin.subscribers', 'icon' => 'fa-users'])
+                ->active('/admin/subscribers/*');
+
 //			$menu->add('Галереи', ['route' => 'admin.gallery', 'icon' => 'fa-image'])
 //				->active('/admin/gallery/*');
 

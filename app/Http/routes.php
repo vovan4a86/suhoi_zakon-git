@@ -8,6 +8,7 @@ Route::group(
     ['prefix' => 'ajax', 'as' => 'ajax.'],
     function () {
         Route::post('contact-us', 'AjaxController@postContactUs')->name('contact-us');
+        Route::post('subscribe', 'AjaxController@postSubscribe')->name('subscribe');
     }
 );
 

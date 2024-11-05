@@ -178,6 +178,11 @@ Route::group(['namespace' => 'Fanky\Admin\Controllers', 'prefix' => 'admin', 'as
             ->name('.delImage');
     });
 
+    Route::group(['as' => '.subscribers', 'prefix' => 'subscribers'], function () {
+        $controller = 'AdminSubscribersController@';
+        Route::get('/', $controller . 'getIndex');
+    });
+
 	Route::group(['as' => '.gallery', 'prefix' => 'gallery'], function () {
 		$controller = 'AdminGalleryController@';
 		Route::get('/', $controller . 'anyIndex');
